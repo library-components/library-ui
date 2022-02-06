@@ -28,7 +28,7 @@ export default {
 				{
 					list: [
 						{
-							path: '/asAbout',
+							path: 'asAbout',
 							title: aboutString,
 							component: () => {
 								if (localLang === 'en-US') {
@@ -48,7 +48,7 @@ export default {
 					groupName: baseComponentsString,
 					list: [
 						{
-							path: '/asCheckbox',
+							path: 'asCheckbox',
 							title: 'Checkbox',
 							component: () => {
 							  if (localLang === 'en-US') {
@@ -59,7 +59,7 @@ export default {
 							}
 						},
 						{
-							path: '/asModal',
+							path: 'asModal',
 							title: 'Modal',
 							component: () => {
 							  if (localLang === 'en-US') {

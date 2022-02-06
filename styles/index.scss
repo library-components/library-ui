@@ -1,0 +1,48 @@
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-start {
+  justify-content: flex-start;
+}
+
+.main-center {
+  justify-content: center;
+}
+
+.main-end {
+  justify-content: flex-end;
+}
+
+.main-between {
+  justify-content: space-between;
+}
+
+.secondary-start {
+  align-items: flex-start;
+}
+
+.secondary-center {
+  align-items: center;
+}
+
+.secondary-end {
+  align-items: flex-end;
+}
+
+/* 在全局CSS里引用: */
+/* 滚动条宽度 */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+ }
+ /* 滚动条的滑块 */
+ ::-webkit-scrollbar-thumb {
+  background-color: #a1a3a9;
+  border-radius: 3px;
+ }

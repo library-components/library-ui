@@ -138,6 +138,9 @@ export default {
 .ndoc-header{
   width: 100%;
   box-shadow: 0 4px 12px #ebedf0;
+  position: sticky;
+  top: 0;
+  z-index: 9;
   .top{
     display: flex;
     align-items: center;

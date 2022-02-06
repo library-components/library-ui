@@ -4,6 +4,9 @@ import docConfig from '../doc.config'
 import hljs from 'highlight.js';
 import { getLang } from '../utils/lang';
 
+const Index = resolve => require(['../pages/index.vue'], resolve)
+const Layout = resolve => require(['~/examples/layout'], resolve)
+
 const localLang = getLang();
 
 Vue.use(Router)
@@ -11,18 +14,32 @@ Vue.use(Router)
 console.log("docConfig: ", docConfig)
 export const commonRoutes = [
   {
-    path: '/',
-    name: 'about',
+    path: '/index',
+    name: 'index',
     meta: {
       name: 'HomePage'
     },
-    component: () => {
-      if (localLang === 'en-US') {
-        return import('../markdown/asAbout/en-US/index.md');
-      } else {
-        return import('../markdown/asAbout/zh-CN/index.md');
+    component: Index
+  },
+  {
+    path: '/',
+    name: 'layout',
+    redirect: '/about',
+    meta: {
+      name: 'HomePage'
+    },
+    component: Layout,
+    children: [{
+      path: 'about',
+      name: 'about',
+      component: () => {
+        if (localLang === 'en-US') {
+          return import('~/examples/markdown/asAbout/en-US/index.md');
+        } else {
+          return import('~/examples/markdown/asAbout/zh-CN/index.md');
+        }
       }
-    }
+    }]
   }
 ];
 
@@ -47,10 +64,18 @@ navConfig.forEach(navItem => {
   });
 });
 
-const routes = componentRoutes.concat(commonRoutes);
+
+for (let i=0; i<commonRoutes.length; i++) {
+  if (commonRoutes[i].path === '/') {
+    commonRoutes[i].children = [...commonRoutes[i].children, ...componentRoutes]
+  }
+}
+
+// console.log('componentRoutes: ', componentRoutes)
+// console.log('routes: ', commonRoutes)
 
 const router = new Router({
-  routes: routes
+  routes: commonRoutes
 })
 
 router.afterEach(route => {

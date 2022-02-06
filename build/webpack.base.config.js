@@ -20,7 +20,9 @@ module.exports = {
     extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了
     alias: {
       vue$: "vue/dist/vue.esm.js", //引入vue
-      "@": path.resolve(__dirname, "../src")
+      "@": path.resolve(__dirname, "../src"),
+      "~/examples": path.resolve(__dirname, "../examples"),
+      "~/packages": path.resolve(__dirname, "../packages")
     }
   },
   optimization: {
