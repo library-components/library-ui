@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2435892 */
+  src: url('iconfont.woff2?t=1624100078431') format('woff2'),
+       url('iconfont.woff?t=1624100078431') format('woff'),
+       url('iconfont.ttf?t=1624100078431') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weibiaoti1:before {
+  content: "\e600";
+}
+
+.icon-lock:before {
+  content: "\e7cc";
+}
+
+.icon-home:before {
+  content: "\e690";
+}
+
+.icon-library:before {
+  content: "\e740";
+}
+
+.icon-borrow:before {
+  content: "\e602";
+}
+
+.icon-management:before {
+  content: "\e672";
+}
+
+.icon-UserSettings:before {
+  content: "\e68c";
+}
+
+.icon-Teammanagement:before {
+  content: "\e633";
+}
+
+.icon-file-markdown-fill:before {
+  content: "\ebb1";
+}
+
+.icon-fanhui:before {
+  content: "\e67a";
+}
+
+.icon-search:before {
+  content: "\e615";
+}
+
+.icon-arrow-left-bold:before {
+  content: "\e685";
+}
+
+.icon-arrow-up-bold:before {
+  content: "\e686";
+}
+
+.icon-arrow-down-bold:before {
+  content: "\e687";
+}
+
+.icon-arrow-right-bold:before {
+  content: "\e688";
+}
+

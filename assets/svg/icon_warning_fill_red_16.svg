@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_warning_fill_red_16</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="49-新增账号" transform="translate(-587.000000, -376.000000)">
+            <g id="气泡窗_异常" transform="translate(563.000000, 357.000000)">
+                <g id="icon/warning/fill_red_16" transform="translate(24.000000, 19.000000)">
+                    <circle id="椭圆形" stroke="#FF4D4F" fill="#FF4D4F" cx="8" cy="8" r="6.66666667"></circle>
+                    <line x1="8" y1="5.33333333" x2="8" y2="9" id="路径-91" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <path d="M8,11.3333333 C8.27614237,11.3333333 8.5,11.1094757 8.5,10.8333333 C8.5,10.557191 8.27614237,10.3333333 8,10.3333333 C7.72385763,10.3333333 7.5,10.557191 7.5,10.8333333 C7.5,11.1094757 7.72385763,11.3333333 8,11.3333333 Z" id="椭圆形" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
