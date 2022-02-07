@@ -3,56 +3,200 @@
 .as-button {
   line-height: 1;
   white-space: nowrap;
-  color: #606266;
   box-sizing: border-box;
   padding: 12px 20px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
   font-size: 14px;
   font-weight: 500;
+  color: #606266;
+  background-color: #fff;
+  outline: none;
+  -webkit-user-select: none;
+  transition: .1s;
   cursor: pointer;
 }
+.as-button:hover {
+  opacity: 0.8;
+}
 
-.as-button-info, .as-button-primary, .as-button-success, .as-button-warning, .as-button-error, .as-button-link {
+.as-button--info, .as-button--primary, .as-button--success, .as-button--warning, .as-button--error, .as-button--link {
   border: none;
 }
 
-.as-button-info {
-  background-color: #c8c9cc;
-  color: #fff;
-  &:hover {
-    opacity: 0.8;
+.as-button--default {
+  border-color: #ebeef5;
+  color: #c0c4cc;
+  &:not(.is-disabled) {
+    color: #606266;
+    border-color: #dcdfe6;
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus, &:hover {
+      border-color: #409eff;
+      color: #409eff;
+    }
+    &:not(.plain) {
+      &:focus, &:hover {
+        background-color: #ecf5ff;
+      }
+    }
   }
 }
 
-.as-button-primary {
+.as-button--info {
+  background-color: #909399;
+  color: #fff;
+  &.is-disabled {
+    background-color: #c8c9cc;
+  }
+  &.plain {
+    background-color: #f4f4f5;
+    border: 1px solid #e9e9eb;
+    color: #bcbec2;
+    &:not(.is-disabled) {
+      border-color: #d3d4d6;
+      color: #909399;
+    }
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus {
+      background-color: #909399;
+      border-color: #909399;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #909399;
+      border-color: #909399;
+      color: #fff;
+    }
+  }
+}
+
+.as-button--primary {
   background-color: #409eff;
   color: #fff;
-  &:hover {
-    opacity: 0.8;
+  &.is-disabled {
+    background-color: #a0cfff;
+  }
+  &.plain {
+    background-color: #ecf5ff;
+    border: 1px solid #d9ecff;
+    color: #8cc5ff;
+    &:not(.is-disabled) {
+      border-color: #b3d8ff;
+      color: #409eff;
+    }
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus {
+      background-color: #409eff;
+      border-color: #409eff;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #409eff;
+      border-color: #409eff;
+      color: #fff;
+    }
   }
 }
 
-.as-button-success {
+.as-button--success {
   background-color: #67c23a;
   color: #fff;
-  &:hover {
-    opacity: 0.8;
+  &.is-disabled {
+    background-color: #b3e19d;
+  }
+  &.plain {
+    background-color: #f0f9eb;
+    border: 1px solid #e1f3d8;
+    color: #a4da89;
+    &:not(.is-disabled) {
+      border-color: #c2e7b0;
+      color: #67c23a;
+    }
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus {
+      background-color: #67c23a;
+      border-color: #67c23a;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #67c23a;
+      border-color: #67c23a;
+      color: #fff;
+    }
   }
 }
 
-.as-button-error {
+.as-button--error {
   background-color: #f56c6c;
   color: #fff;
-  &:hover {
-    opacity: 0.8;
+  &.is-disabled {
+    background-color: #fab6b6;
+  }
+  &.plain {
+    background-color: #fef0f0;
+    border: 1px solid #fde2e2;
+    color: #f9a7a7;
+    &:not(.is-disabled) {
+      border-color: #fbc4c4;
+      color: #f56c6c;
+    }
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus {
+      background-color: #f56c6c;
+      border-color: #f56c6c;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #f56c6c;
+      border-color: #f56c6c;
+      color: #fff;
+    }
   }
 }
 
-.as-button-warning {
+.as-button--warning {
   background-color: #e6a23c;
   color: #fff;
-  &:hover {
-    opacity: 0.8;
+  &.is-disabled {
+    background-color: #f3d19e;
   }
+  &.plain {
+    background-color: #fdf6ec;
+    border: 1px solid #faecd8;
+    color: #f0c78a;
+    &:not(.is-disabled) {
+      border-color: #f5dab1;
+      color: #e6a23c;
+    }
+  }
+  &:not(.is-disabled) {
+    &.plain:hover, &:focus {
+      background-color: #e6a23c;
+      border-color: #e6a23c;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #e6a23c;
+      border-color: #e6a23c;
+      color: #fff;
+    }
+  }
+}
+
+.is-round {
+  border-radius: 20px;
+}
+
+.is-disabled {
+  cursor: not-allowed;
+}
+
+.is-disabled:hover {
+  opacity: 1;
 }

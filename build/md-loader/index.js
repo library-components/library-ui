@@ -21,15 +21,13 @@ module.exports = function(source) {
 
   let commentStart = content.indexOf(startTag);
   let commentEnd = content.indexOf(endTag, commentStart + startTagLen);
-  let style = ''
   while (commentStart !== -1 && commentEnd !== -1) {
     output.push(content.slice(start, commentStart));
 
     const commentContent = content.slice(commentStart + startTagLen, commentEnd);
     const html = stripTemplate(commentContent);
     const script = stripScript(commentContent);
-    style = stripStyle(commentContent);
-    let demoComponentContent = genInlineComponentText(html, script, style);
+    let demoComponentContent = genInlineComponentText(html, script);
     const demoComponentName = `element-demo${id}`;
     output.push(`<template slot="source"><${demoComponentName} /></template>`);
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`;
@@ -59,19 +57,12 @@ module.exports = function(source) {
   }
 
   output.push(content.slice(start));
-
-  let mdString = `
+  return `
     <template>
       <section class="content element-doc">
         ${output.join('')}
       </section>
     </template>
     ${pageScript}
-    <!-- 将style拼接到html模板里 -->
-    ${style}
-  `
-
-  console.log('mdString: ', mdString)
-
-  return mdString;
+  `;
 };

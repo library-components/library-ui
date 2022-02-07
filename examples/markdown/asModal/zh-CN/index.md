@@ -40,7 +40,7 @@ export default {
 
 :::
 
-### Customize define close
+### 自定义关闭
 
 :::demo
 
