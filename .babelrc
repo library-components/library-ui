@@ -20,14 +20,6 @@
                 "corejs": 2
             }
         ],
-        "@babel/plugin-syntax-dynamic-import",
-        [
-            "component",
-            {
-              "libraryName": "element-ui",
-              "styleLibraryName": "theme-chalk"
-            }
-          ]
+        "@babel/plugin-syntax-dynamic-import"
     ]
   }
-  

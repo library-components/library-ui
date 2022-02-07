@@ -14,20 +14,19 @@ Vue.use(Router)
 console.log("docConfig: ", docConfig)
 export const commonRoutes = [
   {
-    path: '/index',
-    name: 'index',
-    meta: {
-      name: 'HomePage'
-    },
-    component: Index
+    path: '/',
+    redirect: '/index',
+    component: Index, // 必须有，可以和重定向的页面一样，否则重定向到空白页
+    children: [{
+      path: 'index',
+      name: 'index',
+      component: Index
+    }]
   },
   {
-    path: '/',
+    path: '/components',
     name: 'layout',
     redirect: '/about',
-    meta: {
-      name: 'HomePage'
-    },
     component: Layout,
     children: [{
       path: 'about',
@@ -53,7 +52,7 @@ navConfig.forEach(navItem => {
       if (item.path !== '/') {
         componentRoutes.push({
           path: item.path,
-          name: item.path.slice(1),
+          name: item.path,
           meta: {
             name: item.path.slice(1)
           },
@@ -66,13 +65,13 @@ navConfig.forEach(navItem => {
 
 
 for (let i=0; i<commonRoutes.length; i++) {
-  if (commonRoutes[i].path === '/') {
+  if (commonRoutes[i].path === '/components') {
     commonRoutes[i].children = [...commonRoutes[i].children, ...componentRoutes]
   }
 }
 
-// console.log('componentRoutes: ', componentRoutes)
-// console.log('routes: ', commonRoutes)
+console.log('componentRoutes: ', componentRoutes)
+console.log('routes: ', commonRoutes)
 
 const router = new Router({
   routes: commonRoutes

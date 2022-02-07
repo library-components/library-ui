@@ -7,6 +7,8 @@ import '../assets/iconfont/iconfont.css'
 
 import '../styles/index.scss'
 
+import './router-guard'
+
 console.log("ASUI: ", ASUI)
 Vue.use(ASUI);
 Vue.component("demo-block", DemoBlock)

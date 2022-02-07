@@ -6,7 +6,7 @@
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="{name: 'about'}">开始使用</router-link>
+        <router-link :to="{name: 'asAbout'}">开始使用</router-link>
         <a target="_blank" class="btn-github" href="https://github.com/VV-UI/VV-UI">GitHub</a>
       </div>
     </div>
@@ -46,6 +46,7 @@
         background: #fff;
         text-align: center;
         a {
+          text-decoration: none;
           color: #fff;
           background-image: linear-gradient(90deg, #00AEFF 0%, #3369E7 100%);
           box-shadow: 0 2px 6px 0 rgba(51,105,231,0.4);

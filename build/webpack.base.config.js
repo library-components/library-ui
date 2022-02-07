@@ -13,7 +13,7 @@ module.exports = {
     filename: "js/[name].[hash:7].js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "./",
-    library: "antsoo-ui",
+    library: "library-ui",
     libraryTarget: "umd"
   },
   resolve: {
