@@ -3,12 +3,15 @@
     <ASHeader
       :config="config.headerConfig"
     />
-    <ASNav
-      :config="config.navConfig"
-    />
-    <ASContainer>
-      <router-view />
-    </ASContainer>
+    <section class="content flex-row main-between">
+      <ASNav
+        :config="config.navConfig"
+        class="sidebar"
+      />
+      <ASContainer>
+        <router-view />
+      </ASContainer>
+    </section>
   </section>
 </template>
 
@@ -27,3 +30,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.content {
+  width: 100vw;
+  height: calc(100vh - 60px);
+}
+</style>

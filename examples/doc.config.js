@@ -12,13 +12,13 @@ const dataEntryString = localLang === 'en-US' ? 'Data Entry' : '数据录入';
 export default {
 	headerConfig: {
 		logo: {
-			href: 'https://tencat-ui.github.io',
+			href: 'https://github.com/ui-libraryment/library-ui',
 			image: 'https://avatars3.githubusercontent.com/u/51054939?s=400&u=8d6342ba8bf5106086c26318ee290452501c6dff&v=4',
-			title: 'Tencat'
+			title: 'Library'
 		},
 		lang: 'zh-CN',
 		versions: ['1.0.0', '1.1.0'],
-		githubLink: 'https://github.com/tencat-ui/tencat-ui',
+		githubLink: 'https://github.com/ui-libraryment/library-ui',
 		simulators: []
 	},
 	navConfig: [
@@ -48,19 +48,8 @@ export default {
 					groupName: baseComponentsString,
 					list: [
 						{
-							path: 'asCheckbox',
-							title: 'Checkbox',
-							component: () => {
-							  if (localLang === 'en-US') {
-								return import('./markdown/asCheckbox/en-US/index.md');
-							  } else {
-								return import('./markdown/asCheckbox/zh-CN/index.md');
-							  }
-							}
-						},
-						{
 							path: 'asModal',
-							title: 'Modal',
+							title: 'Dialog',
 							component: () => {
 							  if (localLang === 'en-US') {
 								return import('./markdown/asModal/en-US/index.md');

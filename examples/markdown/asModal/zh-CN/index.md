@@ -1,11 +1,12 @@
 
-# Modal
+# Dialog对话框
 
 在保留当前页面状态的情况下，告知用户并承载相关操作。
 
-## 示例
 ### 基础用法
+
 :::demo
+
 ```html
 <template>
   <div >
@@ -14,7 +15,7 @@
         <div style="height:100vh;">插槽内容</div>
       </template>
     </a-modal>
-    <button @click="showModal">显示modal</button>
+    <button @click="showModal">显示Dialog</button>
   </div>
 </template>
 
@@ -36,10 +37,50 @@ export default {
 </script>
 
 ```
+
 :::
 
 ### Customize define close
+
 :::demo
+
+```html
+<template>
+  <div >
+    <a-modal :visible.sync="form.visible">
+      <template #content>
+        <div>插槽内容</div>
+      </template>
+    </a-modal>
+    <button @click="showModal">显示Dialog</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data: function () {
+    return {
+        form: {
+            visible: false
+        }
+    }
+  },
+  methods: {
+      showModal() {
+          this.form.visible = true
+      }
+  }
+}
+</script>
+
+```
+
+:::
+
+### Contains supporting text introduction
+
+:::demo
+
 ```html
 <template>
   <div >
@@ -48,7 +89,7 @@ export default {
         <div style="height:100vh;">插槽内容</div>
       </template>
     </a-modal>
-    <button @click="showModal">显示modal</button>
+    <button @click="showModal">显示Dialog</button>
   </div>
 </template>
 
@@ -70,40 +111,7 @@ export default {
 </script>
 
 ```
-:::
 
-### Contains supporting text introduction
-:::demo
-```html
-<template>
-  <div >
-    <a-modal :visible.sync="form.visible">
-      <template #content>
-        <div style="height:100vh;">slot content</div>
-      </template>
-    </a-modal>
-    <button @click="showModal">showModal</button>
-  </div>
-</template>
-
-<script>
-export default {
-  data: function () {
-    return {
-        form: {
-            visible: false
-        }
-    }
-  },
-  methods: {
-      showModal() {
-          this.form.visible = true
-      }
-  }
-}
-</script>
-
-```
 :::
 
 ### API

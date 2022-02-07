@@ -60,7 +60,7 @@ const devConfig = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin()
     ]
 }
 

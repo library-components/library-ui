@@ -1,7 +1,6 @@
 <template>
   <div
     class="ndoc-nav"
-    :style="style"
   >
     <div
       v-for="(item, navIndex) in navConfig"
@@ -67,44 +66,21 @@ export default {
   },
   data: function () {
     return {
-      top: 60,
-      bottom: 0,
       navConfig: this.config
     };
-  },
-  computed: {
-    style () {
-      return {
-        top: this.top + 'px',
-        bottom: this.bottom + 'px'
-      };
-    }
-  },
-  created () {
-    window.addEventListener('scroll', this.onScroll);
-    this.onScroll();
-  },
-  methods: {
-    onScroll () {
-      const { pageYOffset: offset } = window;
-      this.top = Math.max(0, 60 - offset);
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .ndoc-nav {
-  left: 0;
-  top: 60px;
-  bottom: 0;
-  z-index: 1;
-  position: fixed;
   overflow-y: scroll;
   padding: 25px 0 75px;
   background-color: #fff;
   min-width: 220px;
   max-width: 220px;
+  height: 100%;
+  box-sizing: border-box;
   box-shadow: 0 8px 12px #ebedf0;
   border-right: 1px solid #f1f4f8;
 

@@ -5,6 +5,7 @@
       <a
         class="logo"
         :href="headerConfig.logo.href"
+        target="_blank"
       >
         <svg
           t="1585388535760"

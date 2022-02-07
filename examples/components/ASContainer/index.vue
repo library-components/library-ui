@@ -57,7 +57,8 @@ export default {
     },
     currentGithubUrl () {
       const lang = sessionStorage.getItem('lang');
-      return `https://github.com/ninecat-ui/ninecat-ui/tree/master/doc/markdown/${this.currentPage}/${lang}/index.md`;
+      // return `https://github.com/ninecat-ui/ninecat-ui/tree/master/doc/markdown/${this.currentPage}/${lang}/index.md`;
+      return 'https://github.com/ui-libraryment/library-ui'
     }
   }
 };
@@ -65,10 +66,10 @@ export default {
 
 <style lang="scss">
 .ndoc-container {
-  overflow: hidden;
+  overflow: scroll;
   box-sizing: border-box;
   color: #34495e;
-  padding-left: 220px;
+  width: calc(100vw - 220px);
 
   .n-doc-content--,.n-doc-content--nAbout{
     h1 {
