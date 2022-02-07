@@ -28,9 +28,9 @@ branches:
   - hexo
 env:
   global:
-  - GH_REF: github.com/BraveY/BraveY.github.io.git
+  - GH_REF: github.com/ui-libraryment/library-ui
 notifications:
   email:
-  - lsz_yky@163.com
+  - 3096015076@qq.com
   on_success: change
   on_failure: always
