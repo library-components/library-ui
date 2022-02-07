@@ -3,7 +3,7 @@
     <ASHeader
       :config="config.headerConfig"
     />
-    <section class="content flex-row main-between">
+    <section class="main-content flex-row main-between">
       <ASNav
         :config="config.navConfig"
         class="sidebar"
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content {
+.main-content {
   width: 100vw;
   height: calc(100vh - 60px);
 }

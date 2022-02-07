@@ -1,21 +1,24 @@
 
-# Dialog对话框
+# Modal
 
-在保留当前页面状态的情况下，告知用户并承载相关操作。
+Alert component for feedback.
 
-### 基础用法
+## When To Use
 
+When you need to show alert messages to users.
+
+## Examples
+### Basic use
 :::demo
-
 ```html
 <template>
   <div >
-    <as-modal :visible.sync="form.visible">
+    <a-modal :visible.sync="form.visible">
       <template #content>
-        <div style="height:100vh;">插槽内容</div>
+        <div style="height:100vh;">slot content</div>
       </template>
-    </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    </a-modal>
+    <button @click="showModal">showModal</button>
   </div>
 </template>
 
@@ -37,22 +40,19 @@ export default {
 </script>
 
 ```
-
 :::
 
 ### Customize define close
-
 :::demo
-
 ```html
 <template>
   <div >
-    <as-modal :visible.sync="form.visible">
+    <a-modal :visible.sync="form.visible">
       <template #content>
-        <div>插槽内容</div>
+        <div style="height:100vh;">slot content</div>
       </template>
-    </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    </a-modal>
+    <button @click="showModal">showModal</button>
   </div>
 </template>
 
@@ -72,24 +72,20 @@ export default {
   }
 }
 </script>
-
 ```
-
 :::
 
 ### Contains supporting text introduction
-
 :::demo
-
 ```html
 <template>
   <div >
-    <as-modal :visible.sync="form.visible">
+    <a-modal :visible.sync="form.visible">
       <template #content>
-        <div style="height:100vh;">插槽内容</div>
+        <div style="height:100%;">slot content</div>
       </template>
-    </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    </a-modal>
+    <button @click="showModal">showModal</button>
   </div>
 </template>
 
@@ -111,11 +107,10 @@ export default {
 </script>
 
 ```
-
 :::
 
 ### API
 
 | Property | Description | Type | Default |
 | :--- | :--- | :--- | :--- |
-| visible | 是否显示modal，要跟.sync | Boolean | false |
+| show | Whether to show modal, should follow .sync | Boolean | false |

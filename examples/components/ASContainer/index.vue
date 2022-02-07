@@ -70,6 +70,7 @@ export default {
   box-sizing: border-box;
   color: #34495e;
   width: calc(100vw - 220px);
+  height: 100%;
 
   .n-doc-content--,.n-doc-content--nAbout{
     h1 {
@@ -80,9 +81,11 @@ export default {
   }
 
   .n-doc-content {
-    flex: 1;
-    position: relative;
+    width: 100%;
+    height: 100%;
     padding: 30px 60px 75px 60px;
+    box-sizing: border-box;
+    overflow: scroll;
 
     .card {
       padding: 24px;
@@ -90,10 +93,6 @@ export default {
       border-radius: 6px;
       background-color: #fff;
       box-shadow: 0 8px 12px #ebedf0;
-    }
-
-    a {
-      color: #1989fa;
     }
 
     h1,
@@ -242,10 +241,6 @@ export default {
       display: inline;
       box-shadow: none;
       background-color: #f0f2f5;
-    }
-
-    section {
-      overflow: hidden;
     }
 
     blockquote {

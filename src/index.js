@@ -1,19 +1,21 @@
-import Modal from '../packages/as-modal/index';
-import Toast from '../packages/as-toast/index';
-import Carousel from '../packages/as-carousel/index';
-import Checkbox from '../packages/as-checkbox/index';
-import Switch from '../packages/as-switch/index';
-import Radio from '../packages/as-radio/index';
-import Drop from '../packages/as-drop/index';
+import Modal from '~/packages/as-modal/index';
+import Toast from '~/packages/as-toast/index';
+import Carousel from '~/packages/as-carousel/index';
+import Checkbox from '~/packages/as-checkbox/index';
+import Switch from '~/packages/as-switch/index';
+import Radio from '~/packages/as-radio/index';
+import Drop from '~/packages/as-drop/index';
+import Button from '~/packages/as-button/index';
 
 const components = [
-    Modal,
-    Toast,
-    Carousel,
-    Checkbox,
-    Switch,
-    Radio,
-    Drop
+  Modal,
+  Toast,
+  Carousel,
+  Checkbox,
+  Switch,
+  Radio,
+  Drop,
+  Button
 ]
 
 const install = function(Vue) {
@@ -36,5 +38,6 @@ export default {
     Checkbox,
     Switch,
     Radio,
-    Drop
+    Drop,
+    Button
 }

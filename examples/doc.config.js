@@ -5,9 +5,9 @@ const developmentGuideString = localLang === 'en-US' ? 'Development Guide' : '�
 const componentsString = localLang === 'en-US' ? 'Components' : '组件';
 const aboutString = localLang === 'en-US' ? 'About' : '介绍';
 const layoutString = localLang === 'en-US' ? 'Layout' : '布局';
-const baseComponentsString = localLang === 'en-US' ? 'Base Components' : '基础组件';
+const baseComponentsString = localLang === 'en-US' ? 'Basic' : '基础';
 const dataString = localLang === 'en-US' ? 'Data' : '数据';
-const dataEntryString = localLang === 'en-US' ? 'Data Entry' : '数据录入';
+const otherComponentString = localLang === 'en-US' ? 'Other' : '其它';
 
 export default {
 	headerConfig: {
@@ -47,19 +47,33 @@ export default {
 				{
 					groupName: baseComponentsString,
 					list: [
-						{
-							path: 'asModal',
-							title: 'Dialog',
+            {
+							path: 'asButton',
+							title: localLang === 'en-US' ? 'Button' : 'Button 按钮',
 							component: () => {
 							  if (localLang === 'en-US') {
-								return import('./markdown/asModal/en-US/index.md');
+								  return import('./markdown/asButton/en-US/index.md');
 							  } else {
-								return import('./markdown/asModal/zh-CN/index.md');
+								  return import('./markdown/asButton/zh-CN/index.md');
 							  }
 							}
 						}
 					]
-				}
+				},
+        {
+          groupName: otherComponentString,
+          list: [{
+            path: 'asModal',
+            title: localLang === 'en-US' ? 'Dialog' : 'Dialog 对话框',
+            component: () => {
+              if (localLang === 'en-US') {
+              return import('./markdown/asModal/en-US/index.md');
+              } else {
+              return import('./markdown/asModal/zh-CN/index.md');
+              }
+            }
+          }]
+        }
 			]
 		}]
 };

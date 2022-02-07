@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-    name: 'AModal',
+    name: 'AsModal',
     props: {
         visible: {
             type: Boolean,
