@@ -48,6 +48,17 @@ export default {
 					groupName: baseComponentsString,
 					list: [
             {
+							path: 'asLayout',
+							title: localLang === 'en-US' ? 'Layout' : 'Layout 布局',
+							component: () => {
+							  if (localLang === 'en-US') {
+								  return import('./markdown/asLayout/en-US/index.md');
+							  } else {
+								  return import('./markdown/asLayout/zh-CN/index.md');
+							  }
+							}
+						},
+            {
 							path: 'asButton',
 							title: localLang === 'en-US' ? 'Button' : 'Button 按钮',
 							component: () => {

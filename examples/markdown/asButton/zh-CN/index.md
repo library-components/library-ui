@@ -10,7 +10,7 @@
 ```html
 <div class="row flex-row">
   <as-button>默认按钮</as-button>
-  <as-button class="info-button" style="margin-left:20px" type="info">信息按钮</as-button>
+  <as-button style="margin-left:20px" type="info">信息按钮</as-button>
   <as-button style="margin-left:20px" type="primary">原始按钮</as-button>
   <as-button style="margin-left:20px" type="success">成功按钮</as-button>
   <as-button style="margin-left:20px" type="error">错误按钮</as-button>
@@ -56,7 +56,6 @@
 :::
 
 ### 禁用 button
-
 
 :::demo
 
@@ -114,6 +113,9 @@ export default {
 
 ### API
 
-| 属性 | 描述 | 枚举 | 默认值 |
+| 属性 | 描述 | 类型 | 默认值 |
 | :--- | :--- | :--- | :--- |
-| type | 按钮的类型 | info,primary,success,error,warning,link | info |
+| type | 按钮的类型 | default,info,primary,success,error,warning,link | default |
+| disabled | 是否禁用 | boolean | false |
+| plain | 纯色 | boolean | false |
+| round | 圆角 | boolean | false |

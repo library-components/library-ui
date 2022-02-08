@@ -15,7 +15,7 @@
         <div style="height:100vh;">插槽内容</div>
       </template>
     </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    <as-button type="success" @click="showModal">显示dialog</as-button>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
         <div>插槽内容</div>
       </template>
     </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    <as-button type="primary" plain round @click="showModal">显示dialog</as-button>
   </div>
 </template>
 
@@ -77,7 +77,7 @@ export default {
 
 :::
 
-### Contains supporting text introduction
+### 包含支持文本介绍
 
 :::demo
 
@@ -89,7 +89,7 @@ export default {
         <div style="height:100vh;">插槽内容</div>
       </template>
     </as-modal>
-    <button @click="showModal">显示Dialog</button>
+    <as-button type="error" plain @click="showModal">显示dialog</as-button>
   </div>
 </template>
 

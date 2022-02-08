@@ -6,6 +6,8 @@ import Switch from '~/packages/as-switch/index';
 import Radio from '~/packages/as-radio/index';
 import Drop from '~/packages/as-drop/index';
 import Button from '~/packages/as-button/index';
+import Row from '~/packages/as-row/index';
+import Col from '~/packages/as-col/index';
 
 const components = [
   Modal,
@@ -15,29 +17,33 @@ const components = [
   Switch,
   Radio,
   Drop,
-  Button
+  Button,
+  Row,
+  Col
 ]
 
 const install = function(Vue) {
-    components.forEach(component => {
-        Vue.component(component.name, component)
-    })
+  components.forEach(component => {
+      Vue.component(component.name, component)
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
+  install(window.Vue);
 }
 
 console.log("components: ", components, install)
 
 export default {
-    install,
-    Modal,
-    Toast,
-    Carousel,
-    Checkbox,
-    Switch,
-    Radio,
-    Drop,
-    Button
+  install,
+  Modal,
+  Toast,
+  Carousel,
+  Checkbox,
+  Switch,
+  Radio,
+  Drop,
+  Button,
+  Row,
+  Col
 }
