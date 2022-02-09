@@ -39,25 +39,26 @@ export default {
     }
 
     ['span', 'offset', 'pull', 'push'].forEach(prop => {
+      console.log('prop: ', prop)
       if (this[prop] || this[prop] === 0) {
         classList.push(
           prop !== 'span'
-            ? `el-col-${prop}-${this[prop]}`
-            : `el-col-${this[prop]}`
+            ? `as-col-${prop}-${this[prop]}`
+            : `as-col-${this[prop]}`
         );
       }
     });
 
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
       if (typeof this[size] === 'number') {
-        classList.push(`el-col-${size}-${this[size]}`);
+        classList.push(`as-col-${size}-${this[size]}`);
       } else if (typeof this[size] === 'object') {
         let props = this[size];
         Object.keys(props).forEach(prop => {
           classList.push(
             prop !== 'span'
-              ? `el-col-${size}-${prop}-${props[prop]}`
-              : `el-col-${size}-${props[prop]}`
+              ? `as-col-${size}-${prop}-${props[prop]}`
+              : `as-col-${size}-${props[prop]}`
           );
         });
       }

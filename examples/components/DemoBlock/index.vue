@@ -1,6 +1,7 @@
 <template>
   <div
     class="grid"
+    :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
   >
@@ -57,6 +58,12 @@ export default {
     };
   },
   computed: {
+    lang () {
+      return sessionStorage.getItem('lang');
+    },
+    blockClass() {
+      return `demo-${ this.lang } demo-${ this.$router.currentRoute.path.split('/').pop() }`;
+    },
     iconName () {
       if (this.metaShow) {
         return 'iconfont icon-sort-up';
@@ -65,11 +72,10 @@ export default {
       }
     },
     hoveringText () {
-      const lang = sessionStorage.getItem('lang');
       if (this.metaShow) {
-        return lang === 'en-US' ? 'Hide' : '收起';
+        return this.lang === 'en-US' ? 'Hide' : '收起';
       } else {
-        return lang === 'en-US' ? 'Expand' : '展开';
+        return this.lang === 'en-US' ? 'Expand' : '展开';
       }
     }
   },
@@ -82,6 +88,15 @@ export default {
       });
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      let highlight = this.$el.getElementsByClassName('highlight')[0];
+      if (this.$el.getElementsByClassName('description').length === 0) {
+        highlight.style.width = '100%';
+        highlight.borderRight = 'none';
+      }
+    });
+  },
   methods: {
     showMeta () {
       this.metaShow = !this.metaShow;
@@ -90,7 +105,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .grid{
   padding-top: 10px;
   /*width: 90%;*/

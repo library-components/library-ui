@@ -40,23 +40,7 @@ const prodConfig = {
           },
           {
             loader: 'sass-loader',
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                plugins: [
-                  [
-                    'autoprefixer',
-                    {
-                      // 选项
-                    },
-                  ],
-                ],
-              },
-            },
-          },
+          }
         ],
       },
     ],

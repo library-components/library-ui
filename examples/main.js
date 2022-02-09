@@ -5,7 +5,8 @@ import router from './router/index'
 import DemoBlock from './components/DemoBlock/index.vue'
 import '../assets/iconfont/iconfont.css'
 
-import '../styles/index.scss'
+import '~/styles/index.scss'
+import '~/examples/demo-styles/index.scss'
 
 import './router-guard'
 

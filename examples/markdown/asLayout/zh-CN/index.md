@@ -35,13 +35,13 @@
 </as-row>
 
 <style>
-  .el-row {
+  .as-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .el-col {
+  .as-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
