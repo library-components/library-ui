@@ -62,17 +62,17 @@ export default {
       // return `https://github.com/ninecat-ui/ninecat-ui/tree/master/doc/markdown/${this.currentPage}/${this.lang}/index.md`;
       return 'https://github.com/ui-libraryment/library-ui'
     }
-  }
+  },
 };
 </script>
 
 <style lang="scss">
 .ndoc-container {
-  overflow: scroll;
   box-sizing: border-box;
   color: #34495e;
   width: calc(100vw - 220px);
   height: 100%;
+  overflow: scroll;
 
   .n-doc-content--,.n-doc-content--nAbout{
     h1 {
@@ -193,7 +193,7 @@ export default {
     code {
       margin: 0;
       padding: 0;
-      overflow: auto;
+      // overflow: auto;
       line-height: 20px;
       font-size: 14px;
       background: #fafafa;
