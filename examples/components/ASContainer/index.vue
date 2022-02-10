@@ -48,6 +48,9 @@ export default {
     hasSimulator: Boolean
   },
   computed: {
+    lang () {
+      return sessionStorage.getItem('lang');
+    },
     currentPage () {
       const { path } = this.$route;
       if (path) {
@@ -56,8 +59,7 @@ export default {
       return this.$route.name;
     },
     currentGithubUrl () {
-      const lang = sessionStorage.getItem('lang');
-      // return `https://github.com/ninecat-ui/ninecat-ui/tree/master/doc/markdown/${this.currentPage}/${lang}/index.md`;
+      // return `https://github.com/ninecat-ui/ninecat-ui/tree/master/doc/markdown/${this.currentPage}/${this.lang}/index.md`;
       return 'https://github.com/ui-libraryment/library-ui'
     }
   }
@@ -105,6 +107,18 @@ export default {
       font-weight: 400;
       color: #455a64;
       cursor: pointer;
+    }
+
+    h2, h3, h4, h5, h6 {
+      a {
+        text-decoration: none;
+        opacity: 0;
+      }
+      &:hover {
+        a {
+          opacity: 0.4;
+        }
+      }
     }
 
     h1 {

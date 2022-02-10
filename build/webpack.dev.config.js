@@ -11,7 +11,7 @@ const devConfig = {
     contentBase: path.resolve(__dirname, '../dist'),
     compress: true, // 是否压缩
     open: true, //自动打开浏览器
-    host: '0.0.0.0',
+    host: 'localhost',
     hot: true, //启用webpack的热模块替换功能
     historyApiFallback: true, // 不跳转
     inline: true, // 实时刷新,

@@ -39,7 +39,7 @@ export default {
     }
 
     ['span', 'offset', 'pull', 'push'].forEach(prop => {
-      console.log('prop: ', prop)
+      // console.log('prop: ', prop)
       if (this[prop] || this[prop] === 0) {
         classList.push(
           prop !== 'span'
@@ -65,7 +65,7 @@ export default {
     });
 
     return h(this.tag, {
-      class: ['el-col', classList],
+      class: ['as-col', classList],
       style
     }, this.$slots.default);
   }
