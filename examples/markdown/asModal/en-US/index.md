@@ -1,5 +1,5 @@
 
-# Modal
+# Dialog
 
 Alert component for feedback.
 
@@ -8,17 +8,20 @@ Alert component for feedback.
 When you need to show alert messages to users.
 
 ## Examples
+
 ### Basic use
+
 :::demo
+
 ```html
 <template>
   <div >
-    <a-modal :visible.sync="form.visible">
+    <as-modal :visible.sync="form.visible">
       <template #content>
         <div style="height:100vh;">slot content</div>
       </template>
-    </a-modal>
-    <button @click="showModal">showModal</button>
+    </as-modal>
+    <as-button type="success" @click="showModal">show dialog</as-button>
   </div>
 </template>
 
@@ -33,26 +36,29 @@ export default {
   },
   methods: {
       showModal() {
-          this.form.visible = true
+        this.form.visible = true
       }
   }
 }
 </script>
 
 ```
+
 :::
 
 ### Customize define close
+
 :::demo
+
 ```html
 <template>
   <div >
-    <a-modal :visible.sync="form.visible">
+    <as-modal :visible.sync="form.visible">
       <template #content>
         <div style="height:100vh;">slot content</div>
       </template>
-    </a-modal>
-    <button @click="showModal">showModal</button>
+    </as-modal>
+    <as-button type="primary" plain round @click="showModal">show dialog</as-button>
   </div>
 </template>
 
@@ -73,19 +79,22 @@ export default {
 }
 </script>
 ```
+
 :::
 
 ### Contains supporting text introduction
+
 :::demo
+
 ```html
 <template>
   <div >
-    <a-modal :visible.sync="form.visible">
+    <as-modal :visible.sync="form.visible">
       <template #content>
         <div style="height:100%;">slot content</div>
       </template>
-    </a-modal>
-    <button @click="showModal">showModal</button>
+    </as-modal>
+    <as-button type="error" plain @click="showModal">show dialog</as-button>
   </div>
 </template>
 
@@ -107,6 +116,7 @@ export default {
 </script>
 
 ```
+
 :::
 
 ### API

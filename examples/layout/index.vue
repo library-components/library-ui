@@ -35,7 +35,6 @@ export default {
   watch: {
     '$route.path'() {
       // 重置滚动条高度
-      // this.componentScrollBox.scrollTop = 0;
       this.componentScrollBox.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -51,10 +50,11 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     next();
+
     setTimeout(() => {
       const toPath = to.path;
       const fromPath = from.path;
-      
+
       if (toPath === fromPath && to.hash) {
         // 每次锚点时都要将anchorScroll置为true
         this.anchorScroll = true
@@ -84,6 +84,8 @@ export default {
       [].slice.call(anchors).forEach(a => {
         const href = a.getAttribute('href');
         a.href = basePath + href;
+
+        // console.log('href: ', a.href)
       });
     },
     // 前往对应锚点
@@ -91,10 +93,12 @@ export default {
       const anchor = this.getAnchor();
 
       if (anchor) {
-        this.componentScrollBox.scrollTo({
-          top: anchor.offsetTop - this.componentScrollBox.offsetTop,
-          behavior: 'smooth'
-        })
+        setTimeout(_ => {
+          this.componentScrollBox.scrollTo({
+            top: anchor.offsetTop - this.componentScrollBox.offsetTop,
+            behavior: 'smooth'
+          })
+        }, 50);
       }
     },
     // 获取锚点节点信息
@@ -112,10 +116,10 @@ export default {
     isReachBottom () {
       //文档内容实际高度（包括超出视窗的溢出部分）
       const scrollTop = this.componentScrollBox.scrollTop;
-      let scrollHeight = Math.max(this.componentScrollBox.scrollHeight, this.componentScrollBox.scrollHeight);
-      let clientHeight = this.componentScrollBox.innerHeight || Math.min(this.componentScrollBox.clientHeight, this.componentScrollBox.clientHeight);
+      let scrollHeight = this.componentScrollBox.scrollHeight;
+      let clientHeight = this.componentScrollBox.innerHeight || this.componentScrollBox.clientHeight;
 
-      if (clientHeight + scrollTop >= scrollHeight) {
+      if (Math.ceil(clientHeight + scrollTop) >= scrollHeight) {
         console.log('到底了：', scrollTop)
         return true
       }
@@ -123,7 +127,7 @@ export default {
       return false
     },
     handleScroll() {
-      const scrollTop = this.componentScrollBox.scrollTop;
+      const scrollTop = Math.ceil(this.componentScrollBox.scrollTop);
       const anchor = this.getAnchor()
 
       if (anchor) {
@@ -148,7 +152,7 @@ export default {
           this.scrollTop = scrollTop
           if (this.scrollTop !== anchor.offsetTop - this.componentScrollBox.offsetTop) {
             location.href = location.href.replace(/#[^#]+$/g, '')
-            
+
             console.log('赋新值：', this.scrollTop, anchor.offsetTop - this.componentScrollBox.offsetTop)
           }
         }

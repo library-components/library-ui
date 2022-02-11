@@ -197,7 +197,6 @@ export default {
       }
       .cube {
         padding-right: 20px;
-        width: 50px;
         position: relative;
         cursor: pointer;
         padding: 0 7px;
