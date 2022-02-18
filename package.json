@@ -5,7 +5,10 @@
   "private": false,
   "scripts": {
     "dev": "webpack server --mode=development --progress --config ./build/webpack.dev.config.js",
-    "build": "webpack --mode=production --config ./build/webpack.prod.config.js",
+    "build:example": "webpack --mode=production --config ./build/webpack.example.config.js",
+    "build:umd": "webpack --mode=production --config ./build/webpack.prod.config.js",
+    "build:component": "webpack --mode=production --config ./build/webpack.component.config.js",
+    "build:prod": "npm run build:umd && npm run build:component",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -37,7 +40,7 @@
     "markdown-it-container": "^2.0.0",
     "mini-css-extract-plugin": "^1.6.0",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
-    "postcss": "^7.0.14",
+    "postcss": "^8.4.6",
     "sass": "^1.34.0",
     "sass-loader": "^10.1.1",
     "simple-progress-webpack-plugin": "^2.0.0",

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import ASUI from '../src/index'
+import AsUI from '../src/index'
 import router from './router/index'
 import DemoBlock from './components/DemoBlock/index.vue'
 import '../assets/iconfont/iconfont.css'
@@ -10,8 +10,8 @@ import '~/examples/demo-styles/index.scss'
 
 import './router-guard'
 
-console.log("ASUI: ", ASUI)
-Vue.use(ASUI);
+console.log("ASUI: ", AsUI)
+Vue.use(AsUI);
 Vue.component("demo-block", DemoBlock)
 
 new Vue({

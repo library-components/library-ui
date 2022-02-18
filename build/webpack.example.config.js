@@ -1,30 +1,19 @@
-// 开发环境的配置文件
+//webpack.dev.config.js
 const path = require('path')
-const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const { merge } = require('webpack-merge')
 
 const baseConfig = require('./webpack.base.config.js')
 
-const devConfig = {
-  mode: 'development',
-  devtool: 'inline-source-map',
+const exampleConfig = {
+  mode: 'production',
   entry: path.resolve(__dirname, "../examples/main.js"),
-  devServer: {
-    contentBase: path.resolve(__dirname, '../dist'),
-    compress: true, // 是否压缩
-    open: true, //自动打开浏览器
-    host: 'localhost',
-    hot: true, //启用webpack的热模块替换功能
-    historyApiFallback: true, // 不跳转
-    inline: true, // 实时刷新,
-    overlay: {
-      warning: true,
-      errors: true,
-    },
-    publicPath: '/',
-    //hotOnly: true
-    //devServer.hot在没有页面刷新的情况下启用热模块替换作为构建失败时的后备
+  output: {
+    path: path.resolve(__dirname, "../dist"),
+    filename: "static/js/[name]-[hash:7].js",
+    chunkFilename: "static/js/[hash:7]-[id].js",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -51,7 +40,7 @@ const devConfig = {
             options: {
               esModule: false, // 这里设置为false
               limit: 10000,
-              name: "static/[name]-[hash:8].[ext]" // 属于file-loader的属性
+              name: "static/images/[name]-[hash:8].[ext]" // 属于file-loader的属性
             }
           }
         ]
@@ -64,7 +53,7 @@ const devConfig = {
             options: {
               esModule: false, // 这里设置为false
               limit: 10000,
-              name: "static/[name].[hash:7].[ext]"
+              name: "static/media/[name].[hash:7].[ext]"
             }
           }
         ]
@@ -75,13 +64,13 @@ const devConfig = {
         options: {
           esModule: false, // 这里设置为false
           limit: 10000, // size <= 5KB
-          name: "static/[name]-[hash:7].min.[ext]" // 属于file-loader的属性
+          name: "static/fonts/[name]-[hash:7].min.[ext]" // 属于file-loader的属性
         }
       }
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
     new htmlWebpackPlugin({
       // 可以指定文件当模板  让这个文件为入口  读取模板的入口文件
       template: path.resolve(__dirname, "../index.html"),
@@ -91,4 +80,4 @@ const devConfig = {
   ],
 }
 
-module.exports = merge(baseConfig, devConfig)
+module.exports = merge(baseConfig, exampleConfig)
