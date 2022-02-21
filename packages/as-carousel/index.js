@@ -1,7 +1,7 @@
-import ASCarousel from './src/ASCarousel.vue'
+import AsCarousel from './src/component.vue'
 
-ASCarousel.install = function (Vue) {
-    Vue.component(ASCarousel.name, ASCarousel);
+AsCarousel.install = function (Vue) {
+    Vue.component(AsCarousel.name, AsCarousel);
 };
 
-export default ASCarousel;
+export default AsCarousel;

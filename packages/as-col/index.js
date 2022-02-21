@@ -1,7 +1,7 @@
-import ASCol from './src/ASCol';
+import AsCol from './src/col';
 
-ASCol.intall = function(Vue) {
-  Vue.component(ASCol.name, ASCol)
+AsCol.install = function(Vue) {
+  Vue.component(AsCol.name, AsCol)
 }
 
-export default ASCol;
+export default AsCol;

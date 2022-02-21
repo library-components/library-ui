@@ -1,11 +1,16 @@
 {
-  "name": "@antsoo-lib/antsoo-ui",
-  "version": "1.0.1",
-  "description": "",
-  "private": false,
+  "name": "@personal-lib/library-ui",
+  "version": "1.0.8",
+  "description": "library-ui",
+  "main": "lib/library-ui.common.js",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "webpack server --mode=development --progress --config ./build/webpack.dev.config.js",
-    "build": "webpack --mode=production --config ./build/webpack.prod.config.js",
+    "build:example": "npm run clean && webpack --mode=production --config ./build/webpack.example.config.js",
+    "build:umd": "webpack --mode=production --config ./build/webpack.prod.config.js",
+    "build:commonJs": "webpack --mode=production --config ./build/webpack.common.config.js",
+    "build:component": "webpack --mode=production --config ./build/webpack.component.config.js",
+    "build:prod": "npm run clean && npm run build:umd && npm run build:commonJs && npm run build:component",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -37,7 +42,11 @@
     "markdown-it-container": "^2.0.0",
     "mini-css-extract-plugin": "^1.6.0",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
+<<<<<<< HEAD
     "postcss": "^8.2.1",
+=======
+    "postcss": "^8.4.6",
+>>>>>>> eb46f370f0153885c645e812ad12722322a156ce
     "sass": "^1.34.0",
     "sass-loader": "^10.1.1",
     "simple-progress-webpack-plugin": "^2.0.0",

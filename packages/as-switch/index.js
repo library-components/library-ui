@@ -1,7 +1,7 @@
-import ASSwitch from './src/ASSwitch.vue';
+import AsSwitch from './src/component.vue';
 
-ASSwitch.install = function(Vue) {
-    Vue.component(ASSwitch.name, ASSwitch);
+AsSwitch.install = function(Vue) {
+  Vue.component(AsSwitch.name, AsSwitch);
 }
 
-export default ASSwitch;
+export default AsSwitch;

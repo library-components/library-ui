@@ -1,46 +1,32 @@
-// 生成组件库的配置文件
+// webpack基础配置文件
 const path = require("path");
-const os = require("os");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') // css代码分割与提炼
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin') // css代码压缩
-const TerserWebpackPlugin = require('terser-webpack-plugin') // 压缩JS
 const HappyPack = require("happypack");
+const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin') // 打包进度条
 
 const config = require("./config")
 
-const prodConfig = {
-  mode: 'production',
+module.exports = {
+  mode: "production",
   entry: {
     app: ['./src/index.js']
   },
   output: {
     path: path.resolve(__dirname, "../lib"),
-    filename: "index.js",
-    chunkFilename: "[id].js",
-    publicPath: "./",
-    library: "library-ui",
-    libraryTarget: "umd",
-    umdNamedDefine: true,
-    globalObject: 'typeof self !== \'undefined\' ? self : this'
+    publicPath: './',
+    filename: 'library-ui.common.js',
+    chunkFilename: '[id].js',
+    libraryExport: 'default',
+    library: 'library',
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了
     alias: config.alias
   },
   optimization: {
-    minimizer: [
-      //压缩css
-      new OptimizeCssAssetsWebpackPlugin({}),
-      // 压缩JS
-      new TerserWebpackPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
-    ],
+    minimize: false // 不压缩js
   },
   module: {
     rules: [
@@ -55,14 +41,24 @@ const prodConfig = {
         use: ["vue-loader"]
       },
       {
-        test: /\.(c|sc)ss$/,
+        test: /\.md$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: "vue-loader",
             options: {
-              publicPath: '../',
-            },
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
           },
+          {
+            loader: path.resolve(__dirname, "./md-loader/index.js")
+          }
+        ]
+      },
+      {
+        test: /\.(c|sc)ss$/,
+        use: [
           {
             loader: 'css-loader',
           },
@@ -70,16 +66,11 @@ const prodConfig = {
             loader: 'sass-loader',
           }
         ],
-      },
-    ],
+      }
+    ]
   },
   plugins: [
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name]-[hash:7].css',
-      chunkFilename: 'css/[id]-[hash:7].chunk.css',
-    }),
-    new SimpleProgressWebpackPlugin(),
     new HappyPack({
       //用id来标识 happypack处理那里类文件
       id: "happyBabel",
@@ -95,7 +86,5 @@ const prodConfig = {
       verbose: true,
       threads: 4 // 线程开启数
     })
-  ],
-}
-
-module.exports = prodConfig
+  ]
+};
