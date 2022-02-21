@@ -4,9 +4,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const HappyPack = require("happypack");
-const { merge } = require('webpack-merge')
 
-const baseConfig = require('./webpack.common.config.js')
 const config = require("./config")
 
 const exampleConfig = {
@@ -128,4 +126,4 @@ const exampleConfig = {
   ],
 }
 
-module.exports = merge(baseConfig, exampleConfig)
+module.exports = exampleConfig

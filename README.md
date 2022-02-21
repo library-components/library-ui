@@ -31,6 +31,7 @@ module.exports = {
 
 ```
 import { Button, Switch, Modal } from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
 
 Vue.use(Button)
 Vue.use(Switch)

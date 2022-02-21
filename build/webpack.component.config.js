@@ -6,7 +6,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 按需引入的核心工具方法
-const { getComponentEntries } = require('./utils/util');
+const { getComponentEntries } = require('./util');
 const config = require("./config")
 
 module.exports = {

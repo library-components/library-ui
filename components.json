@@ -1,0 +1,12 @@
+{
+  "button": "./packages/as-button/index.js",
+  "switch": "./packages/as-switch/index.js",
+  "carousel": "./packages/as-carousel/index.js",
+  "checkbox": "./packages/as-checkbox/index.js",
+  "col": "./packages/as-col/index.js",
+  "drop": "./packages/as-drop/index.js",
+  "modal": "./packages/as-modal/index.js",
+  "radio": "./packages/as-radio/index.js",
+  "row": "./packages/as-row/index.js",
+  "toast": "./packages/as-toast/index.js"
+}

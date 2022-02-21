@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'ASCarousel',
+  name: 'AsCarousel',
   props: {
     initialSpeed: {
       type: Number,

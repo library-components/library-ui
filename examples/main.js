@@ -7,6 +7,7 @@ import '@/assets/iconfont/iconfont.css'
 
 import '~/styles/index.scss'
 import '~/examples/demo-styles/index.scss'
+import '~/packages/theme-chalk/src/index.scss';
 
 import './router-guard'
 
