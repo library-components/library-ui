@@ -1,7 +1,7 @@
-import ASCheckbox from './src/ASCheckbox.vue';
+import AsCheckbox from './src/component.vue';
 
-ASCheckbox.install = function(Vue) {
-    Vue.component(ASCheckbox.name, ASCheckbox);
+AsCheckbox.install = function(Vue) {
+  Vue.component(AsCheckbox.name, AsCheckbox);
 }
-export default ASCheckbox
-//备注 js导出组件，里面需要install  
+export default AsCheckbox
+//备注 js导出组件，里面需要install

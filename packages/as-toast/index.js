@@ -1,7 +1,7 @@
-import ASToast from './src/ASToast.vue';
+import AsToast from './src/component.vue';
 
-ASToast.install = function(Vue) {
-    Vue.component(ASToast.name, ASToast)
+AsToast.install = function(Vue) {
+  Vue.component(AsToast.name, AsToast)
 }
 
-export default ASToast;
+export default AsToast;

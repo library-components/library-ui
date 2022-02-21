@@ -1,7 +1,7 @@
-import ASRow from './src/ASRow';
+import AsRow from './src/row';
 
-ASRow.install = function(Vue) {
-  Vue.component(ASRow.name, ASRow)
+AsRow.install = function(Vue) {
+  Vue.component(AsRow.name, AsRow)
 }
 
-export default ASRow;
+export default AsRow;

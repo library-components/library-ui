@@ -1,7 +1,7 @@
-import ASModal from './src/ASModal.vue';
+import AsModal from './src/component.vue';
 
-ASModal.install = function(Vue) {
-    Vue.component(ASModal.name, ASModal)
+AsModal.install = function(Vue) {
+  Vue.component(AsModal.name, AsModal)
 }
 
-export default ASModal;
+export default AsModal;
