@@ -1,7 +1,7 @@
-import ASButton from './src/ASButton.vue';
+import AsButton from './src/ASButton.vue';
 
-ASButton.intall = function(Vue) {
-    Vue.component(ASButton.name, ASButton)
+AsButton.install = function(Vue) {
+    Vue.component(AsButton.name, AsButton)
 }
 
-export default ASButton;
+export default AsButton;

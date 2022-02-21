@@ -1,10 +1,13 @@
-//webpack.dev.config.js
+// 生成组件文档的配置文件
 const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+const HappyPack = require("happypack");
 const { merge } = require('webpack-merge')
 
-const baseConfig = require('./webpack.base.config.js')
+const baseConfig = require('./webpack.common.config.js')
+const config = require("./config")
 
 const exampleConfig = {
   mode: 'production',
@@ -15,8 +18,38 @@ const exampleConfig = {
     chunkFilename: "static/js/[hash:7]-[id].js",
     publicPath: '/'
   },
+  resolve: {
+    extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了
+    alias: config.alias
+  },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        //把对.js 的文件处理交给id为happyBabel 的HappyPack 的实例执行
+        loader: "happypack/loader?id=happyBabel",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        use: ["vue-loader"]
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "vue-loader",
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          },
+          {
+            loader: path.resolve(__dirname, "./md-loader/index.js")
+          }
+        ]
+      },
       {
         test: /\.(c|sc)ss$/,
         use: [
@@ -70,12 +103,27 @@ const exampleConfig = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new VueLoaderPlugin(),
     new htmlWebpackPlugin({
       // 可以指定文件当模板  让这个文件为入口  读取模板的入口文件
       template: path.resolve(__dirname, "../index.html"),
       // 输出的模板文件，名为index.html, 在dist目录下
       filename: "index.html"
+    }),
+    new HappyPack({
+      //用id来标识 happypack处理那里类文件
+      id: "happyBabel",
+      //如何处理  用法和loader 的配置一样
+      loaders: [
+        {
+          loader: "babel-loader?cacheDirectory=true"
+        }
+      ],
+      //共享进程池
+      threadPool: happyThreadPool,
+      //允许 HappyPack 输出日志
+      verbose: true,
+      threads: 4 // 线程开启数
     })
   ],
 }

@@ -1,14 +1,16 @@
 {
-  "name": "@antsoo-lib/antsoo-ui",
-  "version": "1.0.1",
-  "description": "",
-  "private": false,
+  "name": "@personal-lib/library-ui",
+  "version": "1.0.7",
+  "description": "library-ui",
+  "main": "lib/library-ui.common.js",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "webpack server --mode=development --progress --config ./build/webpack.dev.config.js",
-    "build:example": "webpack --mode=production --config ./build/webpack.example.config.js",
+    "build:example": "npm run clean && webpack --mode=production --config ./build/webpack.example.config.js",
     "build:umd": "webpack --mode=production --config ./build/webpack.prod.config.js",
+    "build:commonJs": "webpack --mode=production --config ./build/webpack.common.config.js",
     "build:component": "webpack --mode=production --config ./build/webpack.component.config.js",
-    "build:prod": "npm run build:umd && npm run build:component",
+    "build:prod": "npm run clean && npm run build:umd && npm run build:commonJs && npm run build:component",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

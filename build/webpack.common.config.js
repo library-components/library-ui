@@ -1,29 +1,32 @@
-//webpack.base.config.js
+// webpack基础配置文件
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HappyPack = require("happypack");
 const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
+const config = require("./config")
+
 module.exports = {
-  context: path.resolve(__dirname, "../"),
+  mode: "production",
+  entry: {
+    app: ['./src/index.js']
+  },
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "library-ui.umd.js",
-    chunkFilename: "[id].js",
-    publicPath: "./",
-    library: "library-ui",
-    libraryTarget: "umd"
+    path: path.resolve(__dirname, "../lib"),
+    publicPath: './',
+    filename: 'library-ui.common.js',
+    chunkFilename: '[id].js',
+    libraryExport: 'default',
+    library: 'library',
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了
-    alias: {
-      vue$: "vue/dist/vue.esm.js", //引入vue
-      "@": path.resolve(__dirname, "../src"),
-      "~": path.resolve(__dirname, ".."),
-      "~/examples": path.resolve(__dirname, "../examples"),
-      "~/packages": path.resolve(__dirname, "../packages")
-    }
+    alias: config.alias
+  },
+  optimization: {
+    minimize: false // 不压缩js
   },
   module: {
     rules: [
@@ -52,6 +55,17 @@ module.exports = {
             loader: path.resolve(__dirname, "./md-loader/index.js")
           }
         ]
+      },
+      {
+        test: /\.(c|sc)ss$/,
+        use: [
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          }
+        ],
       }
     ]
   },

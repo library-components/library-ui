@@ -1,6 +1,6 @@
 import ASRadio from './src/ASRadio.vue';
 
-ASRadio.intall = function(Vue) {
+ASRadio.install = function(Vue) {
     Vue.component(ASRadio.name, ASRadio)
 }
 

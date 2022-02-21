@@ -1,6 +1,6 @@
 import ASDrop from './src/ASDrop.vue';
 
-ASDrop.intall = function(Vue) {
+ASDrop.install = function(Vue) {
     Vue.component(ASDrop.name, ASDrop)
 }
 

@@ -7,16 +7,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 按需引入的核心工具方法
 const { getComponentEntries } = require('./utils/util');
+const config = require("./config")
 
 module.exports = {
   mode: "production",
   entry: getComponentEntries('packages'), // 按需引入的关键
   output: {
-    path: path.resolve(__dirname, "../dist/"),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, "../lib/"),
+    publicPath: '/lib/',
     filename: '[name].js',
     chunkFilename: '[id].js',
     libraryTarget: 'commonjs2'
+  },
+  resolve: {
+    extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了
+    alias: config.alias
   },
   module: {
     rules: [
