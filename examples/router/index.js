@@ -39,6 +39,10 @@ export const commonRoutes = [
         }
       }
     }]
+  },
+  {
+    path: '*',
+    redirect: '/index'
   }
 ];
 

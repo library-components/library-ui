@@ -2,9 +2,14 @@
 @import './row.scss';
 @import './col.scss';
 @import './modal.scss';
+@import './switch.scss';
 
 .flex-row {
   display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
 }
 
 .flex-column {

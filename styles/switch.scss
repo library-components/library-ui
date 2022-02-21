@@ -1,0 +1,64 @@
+.switch-slide {
+  cursor: pointer;
+  transition: .3s ease;
+  .switch-slide-checked {
+    background-color: #409EFF;
+  }
+  .switch-slide-checked:after {
+    left: 17px;
+  }
+}
+
+.switch-slide-label {
+  display: block;
+  width: 34px;
+  height: 18px;
+  background-color: #ccc;
+  border-radius: 30px;
+  position: relative;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.switch-slide-label:after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.switch-label {
+  transition: 0.2s;
+  height: 20px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  vertical-align: middle;
+  color: #303133;
+  &.is-active {
+    color: #409EFF;
+  }
+}
+
+.switch-left-label {
+  margin-right: 10px;
+}
+
+.switch-right-label {
+  margin-left: 10px;
+}
+
+.switch-slide.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

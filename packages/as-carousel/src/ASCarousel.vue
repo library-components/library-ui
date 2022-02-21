@@ -9,7 +9,7 @@
           <img :src="item.img" alt="">
         </li>
         <li>
-          <img :src="sliders[0].img" alt="">
+          <img :src="sliders[sliders.length - sliders.length].img" alt="">
         </li>
       </ul>
       <ul class="direction">

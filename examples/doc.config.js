@@ -68,6 +68,17 @@ export default {
 								  return import('./markdown/asButton/zh-CN/index.md');
 							  }
 							}
+						},
+            {
+							path: 'asSwitch',
+							title: localLang === 'en-US' ? 'Switch' : 'Switch 开关',
+							component: () => {
+							  if (localLang === 'en-US') {
+								  return import('./markdown/asSwitch/en-US/index.md');
+							  } else {
+								  return import('./markdown/asSwitch/zh-CN/index.md');
+							  }
+							}
 						}
 					]
 				},
