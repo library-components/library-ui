@@ -75,6 +75,17 @@ export default {
           groupName: baseComponentsString,
           list: [
             {
+              path: 'asIcon',
+              title: localLang === 'en-US' ? 'Icon' : 'Icon 图标',
+              component: () => {
+                if (localLang === 'en-US') {
+                  return import('./markdown/icon/en-US/index.md');
+                } else {
+                  return import('./markdown/icon/zh-CN/index.md');
+                }
+              }
+            },
+            {
               path: 'asButton',
               title: localLang === 'en-US' ? 'Button' : 'Button 按钮',
               component: () => {

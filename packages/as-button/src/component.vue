@@ -1,22 +1,25 @@
 <template>
   <button
-    :disabled="disabled"
+    :disabled="disabled || loading"
+    @click="handleClick"
     :class="['as-button', `as-button--${type}`, 
       {
         'is-disabled': disabled,
+        'is-loading': loading,
         'plain': plain,
         'is-round': round
       }
-    ]"
-    @click="handleClick">
-    <span>
+    ]">
+    <i class="as-icon-loading" v-if="loading"></i>
+    <i :class="icon" v-if="icon && !loading"></i>
+    <span v-if="$slots.default">
       <slot></slot>
     </span>
   </button>
 </template>
 
 <script>
-const types = ['default', 'primary', 'success', 'error', 'info', 'warning', 'link']
+const types = ['default', 'primary', 'success', 'error', 'info', 'warning', 'link', 'text']
 
 export default {
   name: 'AsButton',
@@ -39,7 +42,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
+    },
+    loading: Boolean,
+    icon: String
   },
   methods: {
     handleClick (e) {

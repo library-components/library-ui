@@ -37,7 +37,6 @@
 
 :::
 
-
 ### 圆角(round) button
 
 :::demo
@@ -111,6 +110,31 @@ export default {
 
 :::
 
+### 文字按钮
+
+没有边框和背景色的按钮。
+
+:::demo
+
+```html
+<as-button type="text">文字按钮</as-button>
+<as-button type="text" disabled>文字按钮</as-button>
+```
+
+:::
+
+### 加载中
+
+点击按钮后进行数据加载操作，在按钮上显示加载状态。
+
+:::demo 要设置为 loading 状态，只要设置`loading`属性为`true`即可。
+
+```html
+<as-button type="primary" :loading="true">加载中</as-button>
+```
+
+:::
+
 ### API
 
 | 属性 | 描述 | 类型 | 默认值 |
@@ -119,3 +143,5 @@ export default {
 | disabled | 是否禁用 | boolean | false |
 | plain | 纯色 | boolean | false |
 | round | 圆角 | boolean | false |
+| loading | 是否处于加载状态 | boolean | false |
+| icon | 按钮图标 | string | - |
