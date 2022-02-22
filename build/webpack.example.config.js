@@ -1,9 +1,10 @@
 // 生成组件文档的配置文件
 const path = require('path')
+const os = require('os')
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const HappyPack = require("happypack");
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const config = require("./config")
 
@@ -14,7 +15,7 @@ const exampleConfig = {
     path: path.resolve(__dirname, "../dist"),
     filename: "static/js/[name]-[hash:7].js",
     chunkFilename: "static/js/[hash:7]-[id].js",
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     extensions: [".js", ".vue", ".json"], //取消后缀  引入文件路径就不用加文件后缀了

@@ -192,10 +192,22 @@ export default {
       font-size: 14px;
     }
 
+    .tip {
+      padding: 8px 16px;
+      background-color: #ECF8FF;
+      border-radius: 4px;
+      border-left: #50bfff 5px solid;
+      margin: 20px 0;
+
+      code {
+        background-color: rgba(255, 255, 255, .7);
+        color: #445368;
+      }
+    }
+
     code {
       margin: 0;
       padding: 0;
-      // overflow: auto;
       line-height: 20px;
       font-size: 14px;
       background: #fafafa;
