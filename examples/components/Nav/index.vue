@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import nNavLink from '../ASNavLink';
+import nNavLink from '../NavLink';
 export default {
-  name: 'NNav',
+  name: 'Nav',
   components: { nNavLink },
   props: {
     config: {

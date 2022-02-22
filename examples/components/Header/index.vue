@@ -113,6 +113,7 @@ export default {
   methods: {
     setLang () {
       const lang = getLang();
+
       if (lang === 'zh-CN') {
         this.lang = 'English';
       } else if (lang === 'en-US') {

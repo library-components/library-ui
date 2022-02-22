@@ -1,29 +1,29 @@
 <template>
   <section>
-    <ASHeader
+    <Header
       :config="config.headerConfig"
     />
     <section class="main-content flex-row main-between">
-      <ASNav
+      <Nav
         :config="config.navConfig"
         class="sidebar"
       />
-      <ASContainer ref="componentScroll">
+      <Container ref="componentScroll">
         <router-view />
-      </ASContainer>
+      </Container>
     </section>
   </section>
 </template>
 
 <script>
-import ASHeader from '~/examples/components/ASHeader/index.vue';
-import ASNav from '~/examples/components/ASNav/index.vue';
-import ASContainer from '~/examples/components/ASContainer/index.vue';
+import Header from '~/examples/components/Header/index.vue';
+import Nav from '~/examples/components/Nav/index.vue';
+import Container from '~/examples/components/Container/index.vue';
 import config from '~/examples/doc.config';
 import throttle from 'throttle-debounce/throttle';
 
 export default {
-  components: { ASHeader, ASNav, ASContainer },
+  components: { Header, Nav, Container },
   data: function () {
     return {
       config: config,

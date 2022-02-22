@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'NNavLink',
+  name: 'NavLink',
 
   props: {
     base: {

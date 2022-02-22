@@ -11,7 +11,6 @@ import '~/packages/theme-chalk/src/index.scss';
 
 import './router-guard'
 
-console.log("AsUI: ", AsUI)
 Vue.use(AsUI);
 Vue.component("demo-block", DemoBlock)
 

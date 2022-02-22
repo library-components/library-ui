@@ -111,6 +111,8 @@ export default {
 
     h2, h3, h4, h5, h6 {
       a {
+        float: left;
+        margin-left: -20px;
         text-decoration: none;
         opacity: 0;
       }

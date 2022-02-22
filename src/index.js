@@ -8,6 +8,11 @@ import Drop from '~/packages/as-drop/index';
 import Button from '~/packages/as-button/index';
 import Row from '~/packages/as-row/index';
 import Col from '~/packages/as-col/index';
+import Container from '~/packages/as-container/index'
+import Header from '~/packages/as-header/index'
+import Aside from '~/packages/as-aside/index'
+import Main from '~/packages/as-main/index'
+import Footer from '~/packages/as-footer/index'
 
 const components = [
   Modal,
@@ -19,12 +24,17 @@ const components = [
   Drop,
   Button,
   Row,
-  Col
+  Col,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Footer
 ]
 
 const install = function(Vue) {
   components.forEach(component => {
-      Vue.component(component.name, component)
+    Vue.component(component.name, component)
   })
 }
 
@@ -45,5 +55,10 @@ export default {
   Drop,
   Button,
   Row,
-  Col
+  Col,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Footer
 }
