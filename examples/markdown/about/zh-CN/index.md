@@ -26,25 +26,73 @@ Library-ui
 
 ```shell
 // 使用npm
-
-npm install library-ui -S
+npm i @personal-lib/library-ui
 
 // 使用yarn
-
-yarn add library-ui
+yarn add @personal-lib/library-ui
 ```
 
-## 示例
+## 完整引入
+
+在main.js中加入如下内容：
 
 ```
-import { createApp } from 'vue'
+import LibraryUI from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
+
+Vue.use(LibraryUI)
+```
+
+## 按需加载
+
+按需加载需要先安装`babel-plugin-import`:
+
+```markdown
+npm i babel-plugin-import @vue/cli-plugin-babel -D
+```
+
+修改babel.config.js如下：
+
+```markdown
+module.exports = {
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'library-ui',
+        style: (name) => {
+          return `${name}/index.css`;
+        },
+        camel2DashComponentName: false, // 是否需要驼峰转短线
+        camel2UnderlineComponentName: false // 是否需要驼峰转下划线
+      }
+    ]
+  ]
+};
+```
+
+接下来，如果你只希望引入部分组件，比如 Button 和 Modal，那么需要在 main.js 中写入以下内容：
+
+```markdown
+import Vue from 'vue'
 import App from './App.vue'
-import library from 'library-ui'
+import { Button, Switch, Modal } from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
 
-const app = createApp(App);
-app
-  .use(library)
-  .mount('#app')
+Vue.component(Button.name, Button);
+Vue.component(Modal.name, Modal);
+/* 或写为
+ * Vue.use(Button)
+ * Vue.use(Modal)
+ */
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
+})
 ```
 
 ## 开发指南

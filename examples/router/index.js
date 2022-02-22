@@ -33,9 +33,9 @@ export const commonRoutes = [
       name: 'about',
       component: () => {
         if (localLang === 'en-US') {
-          return import('~/examples/markdown/asAbout/en-US/index.md');
+          return import('~/examples/markdown/about/en-US/index.md');
         } else {
-          return import('~/examples/markdown/asAbout/zh-CN/index.md');
+          return import('~/examples/markdown/about/zh-CN/index.md');
         }
       }
     }]

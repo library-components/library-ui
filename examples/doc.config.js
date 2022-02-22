@@ -32,9 +32,9 @@ export default {
 							title: aboutString,
 							component: () => {
 								if (localLang === 'en-US') {
-									return import('./markdown/asAbout/en-US/index.md');
+									return import('./markdown/about/en-US/index.md');
 								} else {
-									return import('./markdown/asAbout/zh-CN/index.md');
+									return import('./markdown/about/zh-CN/index.md');
 								}
 							}
 						}
@@ -45,43 +45,48 @@ export default {
 			name: componentsString,
 			groups: [
 				{
-					groupName: baseComponentsString,
+					groupName: layoutString,
 					list: [
             {
 							path: 'asLayout',
 							title: localLang === 'en-US' ? 'Layout' : 'Layout 布局',
 							component: () => {
 							  if (localLang === 'en-US') {
-								  return import('./markdown/asLayout/en-US/index.md');
+								  return import('./markdown/layout/en-US/index.md');
 							  } else {
-								  return import('./markdown/asLayout/zh-CN/index.md');
-							  }
-							}
-						},
-            {
-							path: 'asButton',
-							title: localLang === 'en-US' ? 'Button' : 'Button 按钮',
-							component: () => {
-							  if (localLang === 'en-US') {
-								  return import('./markdown/asButton/en-US/index.md');
-							  } else {
-								  return import('./markdown/asButton/zh-CN/index.md');
-							  }
-							}
-						},
-            {
-							path: 'asSwitch',
-							title: localLang === 'en-US' ? 'Switch' : 'Switch 开关',
-							component: () => {
-							  if (localLang === 'en-US') {
-								  return import('./markdown/asSwitch/en-US/index.md');
-							  } else {
-								  return import('./markdown/asSwitch/zh-CN/index.md');
+								  return import('./markdown/layout/zh-CN/index.md');
 							  }
 							}
 						}
 					]
 				},
+        {
+          groupName: baseComponentsString,
+          list: [
+            {
+              path: 'asButton',
+              title: localLang === 'en-US' ? 'Button' : 'Button 按钮',
+              component: () => {
+                if (localLang === 'en-US') {
+                  return import('./markdown/button/en-US/index.md');
+                } else {
+                  return import('./markdown/button/zh-CN/index.md');
+                }
+              }
+            },
+            {
+              path: 'asSwitch',
+              title: localLang === 'en-US' ? 'Switch' : 'Switch 开关',
+              component: () => {
+                if (localLang === 'en-US') {
+                  return import('./markdown/switch/en-US/index.md');
+                } else {
+                  return import('./markdown/switch/zh-CN/index.md');
+                }
+              }
+            }
+          ]
+        },
         {
           groupName: otherComponentString,
           list: [{
@@ -89,9 +94,9 @@ export default {
             title: localLang === 'en-US' ? 'Dialog' : 'Dialog 对话框',
             component: () => {
               if (localLang === 'en-US') {
-              return import('./markdown/asModal/en-US/index.md');
+              return import('./markdown/modal/en-US/index.md');
               } else {
-              return import('./markdown/asModal/zh-CN/index.md');
+              return import('./markdown/modal/zh-CN/index.md');
               }
             }
           }]
