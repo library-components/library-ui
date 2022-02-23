@@ -1,18 +1,19 @@
+
+import Container from '~/packages/as-container/index';
+import Header from '~/packages/as-header/index';
+import Aside from '~/packages/as-aside/index';
+import Main from '~/packages/as-main/index';
+import Footer from '~/packages/as-footer/index';
+import Row from '~/packages/as-row/index';
+import Col from '~/packages/as-col/index';
 import Modal from '~/packages/as-modal/index';
 import Toast from '~/packages/as-toast/index';
 import Carousel from '~/packages/as-carousel/index';
-import Checkbox from '~/packages/as-checkbox/index';
 import Switch from '~/packages/as-switch/index';
 import Radio from '~/packages/as-radio/index';
 import Drop from '~/packages/as-drop/index';
 import Button from '~/packages/as-button/index';
-import Row from '~/packages/as-row/index';
-import Col from '~/packages/as-col/index';
-import Container from '~/packages/as-container/index'
-import Header from '~/packages/as-header/index'
-import Aside from '~/packages/as-aside/index'
-import Main from '~/packages/as-main/index'
-import Footer from '~/packages/as-footer/index'
+import Checkbox from '~/packages/as-checkbox/index';
 
 const components = [
   Modal,

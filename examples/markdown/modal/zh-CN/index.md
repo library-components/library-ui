@@ -78,11 +78,11 @@ export default {
 
 ### API
 
-| Property | Description | Type | Default |
+| 属性 | 描述 | 类型 | 默认值 |
 | :--- | :--- | :--- | :--- |
-| title | modal标题 | string | - |
-| width | modal距离顶部的距离 | string | - |
-| top | modal距离顶部的距离 | string | 15vh |
+| title | 标题 | string | - |
+| width | 宽度 | string | - |
+| top | 距离顶部的距离 | string | 15vh |
 | visible | 是否显示modal，要跟.sync | Boolean | false |
 | show-close | 显示关闭按钮 | Boolean | true |
 | close-on-mask | 允许点击遮罩层关闭 | Boolean | true |

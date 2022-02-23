@@ -1,79 +1,57 @@
 <template>
-  <label class="switch column-center">
-    <input
-      class="checkbox-input"
-      id="checkbox"
-      type="checkbox"
-      :style="{background: checked ? color:''}"
-      @change="change"
-    />
-    <label class="checkbox" for="checkbox" :style="{background:  checked ? color:''}"></label>
-    <span :style="{color: labelColor ? labelColor:color}">{{name}}</span>
-  </label>
+  <section
+    class="as-checkbox"
+    :class="[{
+      'is-checked': checked,
+      'is-disabled': disabled
+    }]"
+    @click.prevent="handleClick">
+    <span class="as-checkbox__input">
+      <span
+        class="as-checkbox__inner"
+        :class="[{
+          'is-checked': checked,
+          'is-disabled': disabled
+        }]"></span>
+      <input
+        class="as-checkbox__original"
+        type="checkbox"
+        ref="input"
+        :disabled="disabled" />
+    </span>
+    <label class="as-checkbox__label" :class="{
+      'is-disabled': disabled
+    }">
+      <slot></slot>
+    </label>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "ACheckbox",
+  name: 'AsCheckbox',
   props: {
-    color: {
-        type: String,
-        default: '#57ad68'
+    value: { // 对自定义组件使用v-model时，组件内必须使用value来接收v-model传来的值
+      type: Boolean,
+      default: false
     },
-    labelColor: {
-        type: String,
-        default: ''
-    },
-    name: {
-      type: String,
-      default: ''
-    }
+    disabled: Boolean
   },
-  data () {
-    return {
-        checked: false   
+  computed: {
+    checked () {
+      return this.value
     }
   },
   methods: {
-    change (e) {
-      this.checked = !this.checke;
+    handleClick () {
+      !this.disabled && this.handleChange()
+    },
+    handleChange ($event) {
+      this.$refs.input.checked = !this.checked
+
+      this.$emit("input", this.$refs.input.checked)
+      this.$emit("change", this.$refs.input.checked)
     }
   }
-};
+}
 </script>
-
-<style scoped>
-.switch {
-  height: 2rem;
-}
-.checkbox-input {
-  display: none;
-}
-.checkbox {
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  background-color: #fff;
-  border: 1px solid #d7d7d7;
-  border-radius: 3px;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin: 0 5px;
-  position: relative;
-  cursor: pointer;
-}
-.checkbox::after {
-    content: '\2714';
-    display: inline-flex;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    font-size: 12px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    align-items: center;
-}
-</style>

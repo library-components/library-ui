@@ -16,10 +16,12 @@ When you need to show alert messages to users.
 ```html
 <template>
   <div >
-    <as-modal :visible.sync="form.visible">
-      <template #content>
-        <div style="height:100vh;">slot content</div>
-      </template>
+    <as-modal :visible.sync="form.visible" title="tip" :close-on-mask="false">
+      <div>content</div>
+      <span slot="footer">
+        <as-button @click="form.visible = false">cancel</as-button>
+        <as-button type="primary" @click="form.visible = false">confirm</as-button>
+      </span>
     </as-modal>
     <as-button type="success" @click="showModal">show dialog</as-button>
   </div>
@@ -29,55 +31,19 @@ When you need to show alert messages to users.
 export default {
   data: function () {
     return {
-        form: {
-            visible: false
-        }
+      form: {
+        visible: false
+      }
     }
   },
   methods: {
-      showModal() {
-        this.form.visible = true
-      }
+    showModal() {
+      this.form.visible = true
+    }
   }
 }
 </script>
 
-```
-
-:::
-
-### Customize define close
-
-:::demo
-
-```html
-<template>
-  <div >
-    <as-modal :visible.sync="form.visible">
-      <template #content>
-        <div style="height:100vh;">slot content</div>
-      </template>
-    </as-modal>
-    <as-button type="primary" plain round @click="showModal">show dialog</as-button>
-  </div>
-</template>
-
-<script>
-export default {
-  data: function () {
-    return {
-        form: {
-            visible: false
-        }
-    }
-  },
-  methods: {
-      showModal() {
-          this.form.visible = true
-      }
-  }
-}
-</script>
 ```
 
 :::
@@ -89,12 +55,14 @@ export default {
 ```html
 <template>
   <div >
-    <as-modal :visible.sync="form.visible">
-      <template #content>
-        <div style="height:100%;">slot content</div>
-      </template>
+    <as-modal title="custom content" :visible.sync="form.visible" width="30%">
+      <div style="height:50vh;">content</div>
+      <span slot="footer">
+        <as-button @click="form.visible = false">cancel</as-button>
+        <as-button type="primary" @click="form.visible = false">confirm</as-button>
+      </span>
     </as-modal>
-    <as-button type="error" plain @click="showModal">show dialog</as-button>
+    <as-button type="text" plain @click="showModal">show dialog</as-button>
   </div>
 </template>
 
@@ -102,15 +70,15 @@ export default {
 export default {
   data: function () {
     return {
-        form: {
-            visible: false
-        }
+      form: {
+        visible: false
+      }
     }
   },
   methods: {
-      showModal() {
-          this.form.visible = true
-      }
+    showModal() {
+      this.form.visible = true
+    }
   }
 }
 </script>

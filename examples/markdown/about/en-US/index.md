@@ -10,48 +10,93 @@ Library-ui
       <img src="https://img.shields.io/badge/vue-2.6.12-green.svg">
   </h1>
 
+`Library-ui` Is a lightweight Vue2.6.12 UI Web component library。
 
-`Library-ui` is a light Vue 2.6.12 web UI framework
+## Support environment
 
-
-## Supporting environment
- Supports all major modern browsers.
+Supports major modern browsers.
 
 |<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />Edge | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />Firefox | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />Chrome | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />Safari |
 | :--- | :--- | :--- | :--- |
 | >=14 | >= 45 | >=49 | >=10 |
 
-## Install
+## install
 
-Install using npm or yarn
-
-We recommend using npm or yarn for development, not only for easy debugging in the development environment, but also for packaging and deployment in the production environment, and enjoy the many benefits brought by the entire ecosystem and toolchain.
+We recommend using npm or yarn for installation. Not only can it be easily debugged in the development environment, but it can also be packaged and deployed in the production environment with confidence, enjoying the many benefits brought by the entire ecosystem and tool chain.
 
 ```shell
 // use npm
-
-npm install library-ui -S
+npm i @personal-lib/library-ui
 
 // use yarn
-
-yarn add library-ui
+yarn add @personal-lib/library-ui
 ```
 
-## Example
+## Full Import
+
+Add the following to main.js:
 
 ```
-import { createApp } from 'vue'
+import LibraryUI from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
+
+Vue.use(LibraryUI)
+```
+
+## Load on demand
+
+On-demand loading requires `babel-plugin-import` to be installed first:
+
+```markdown
+npm i babel-plugin-import @vue/cli-plugin-babel -D
+```
+
+Modify babel.config.js as follows:
+
+```markdown
+module.exports = {
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'library-ui',
+        style: (name) => {
+          return `${name}/index.css`;
+        },
+        camel2DashComponentName: false, // Do you need a hump to a short line?
+        camel2UnderlineComponentName: false // Do you need to turn camel case to underscore?
+      }
+    ]
+  ]
+};
+```
+
+Next, if you only want to import some components, such as Button and Modal, then you need to write the following in main.js:
+
+```markdown
+import Vue from 'vue'
 import App from './App.vue'
-import library from 'library-ui'
+import { Button, Switch, Modal } from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
 
-const app = createApp(App);
-app
-  .use(library)
-  .mount('#app')
+Vue.component(Button.name, Button);
+Vue.component(Modal.name, Modal);
+/* or written as
+ * Vue.use(Button)
+ * Vue.use(Modal)
+ */
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
+})
 ```
 
 ## Development Guide
 
  [Vue](https://cn.vuejs.org/index.html)
 
- [Contribution Guide](https://github.com/ninecat-ui/ninecat-ui/blob/master/.github/CONTRIBUTING.en-US.md)
+ [Contribution Guidelines](https://github.com/ninecat-ui/ninecat-ui/blob/master/.github/CONTRIBUTING.zh-CN.md)

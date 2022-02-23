@@ -97,6 +97,17 @@ export default {
               }
             },
             {
+              path: 'asCheckbox',
+              title: localLang === 'en-US' ? 'Checkbox' : 'Checkbox 复选框',
+              component: () => {
+                if (localLang === 'en-US') {
+                  return import('./markdown/checkbox/en-US/index.md');
+                } else {
+                  return import('./markdown/checkbox/zh-CN/index.md');
+                }
+              }
+            },
+            {
               path: 'asSwitch',
               title: localLang === 'en-US' ? 'Switch' : 'Switch 开关',
               component: () => {
