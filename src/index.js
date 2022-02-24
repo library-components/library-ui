@@ -14,6 +14,8 @@ import Radio from '~/packages/as-radio/index';
 import Drop from '~/packages/as-drop/index';
 import Button from '~/packages/as-button/index';
 import Checkbox from '~/packages/as-checkbox/index';
+import CheckboxButton from '~/packages/as-checkbox-button/index';
+import CheckboxGroup from '~/packages/as-checkbox-group/index';
 
 const components = [
   Modal,
@@ -30,7 +32,9 @@ const components = [
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  CheckboxButton,
+  CheckboxGroup
 ]
 
 const install = function(Vue) {
@@ -61,5 +65,7 @@ export default {
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  CheckboxButton,
+  CheckboxGroup
 }

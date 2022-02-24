@@ -24,6 +24,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.as-icon-success-top-right:before {
+  content: "\e8ec";
+}
+
+.as-icon-success-top-left:before {
+  content: "\e601";
+}
+
+.as-icon-success-right-bottom:before {
+  content: "\e688";
+}
+
+.as-icon-recommend-checked:before {
+  content: "\e60b";
+}
+
+.as-icon-compass:before {
+  content: "\e617";
+}
+
+.as-icon-star:before {
+  content: "\e64e";
+}
+
 .as-icon-notice-fill:before {
   content: "\e709";
 }
@@ -168,11 +192,31 @@
   content: "\e77a";
 }
 
-.as-icon-success:before {
-  content: "\e688";
+.as-icon-success-circle:before {
+  content: "\e6c9";
 }
 
-.as-icon-success-fill:before {
+.as-icon-success-verify:before {
+  content: "\e6de";
+}
+
+.as-icon-hook:before {
+  content: "\e60d";
+}
+
+.as-icon-tag:before {
+  content: "\e911";
+}
+
+.as-icon-favour:before {
+  content: "\e69f";
+}
+
+.as-icon-label::before {
+  content: "\e637";
+}
+
+.as-icon-success-round:before {
   content: "\e68b";
 }
 

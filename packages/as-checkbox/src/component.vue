@@ -3,7 +3,8 @@
     class="as-checkbox"
     :class="[{
       'is-checked': checked,
-      'is-disabled': disabled
+      'is-disabled': disabled,
+      'is-bordered': border
     }]"
     @click.prevent="handleClick">
     <span class="as-checkbox__input">
@@ -35,7 +36,8 @@ export default {
       type: Boolean,
       default: false
     },
-    disabled: Boolean
+    disabled: Boolean,
+    border: Boolean
   },
   computed: {
     checked () {

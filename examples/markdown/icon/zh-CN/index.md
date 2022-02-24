@@ -7,6 +7,7 @@
 直接通过设置类名为 `as-icon-iconName` 来使用即可。例如：
 
 :::demo
+
 ```html
 <i class="as-icon-edit"></i>
 <i class="as-icon-share-fill"></i>
@@ -14,6 +15,7 @@
 <as-button type="primary" icon="as-icon-search">搜索</as-button>
 
 ```
+
 :::
 
 ### 图标集合
