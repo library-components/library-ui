@@ -6,6 +6,7 @@
       'is-disabled': disabled && !success,
       'is-success-checked': checked && success,
       'is-success-disabled': disabled && success,
+      'is-group-bordered': hasGroup
     }"
     @click.prevent="handleClick">
     <input
@@ -15,6 +16,7 @@
       :disabled="disabled" />
     <span class="as-checkbox-button__label">
       <slot></slot>
+      <template v-if="!$slots.default">{{label}}</template>
       <i
         v-if="success && checked"
         class="as-checkbox-button__icon"
@@ -33,6 +35,7 @@ export default {
       type: Boolean,
       default: false
     },
+    label: String,
     success: Boolean,
     disabled: Boolean,
     icon: String,
@@ -45,7 +48,18 @@ export default {
     }
   },
   computed: {
+    parent () {
+      return this.$parent || this.$root;
+    },
+    // 是否是复选框组
+    hasGroup () {
+      return this.parent.$options.componentName === 'AsCheckboxGroup'
+    },
     checked () {
+      if (this.parent.$options.componentName === 'AsCheckboxGroup') { // 当是复选框组时
+        return this.parent.value.indexOf(this.label) !== -1
+      }
+
       return this.value
     }
   },
@@ -55,8 +69,26 @@ export default {
     },
     handleChange () {
       this.$refs.input.checked = !this.checked
+
+      if (this.parent.$options.componentName === 'AsCheckboxGroup') {
+        this.handleGroupValue()
+      }
+
       this.$emit("input", this.$refs.input.checked)
       this.$emit("change", this.$refs.input.checked)
+    },
+    handleGroupValue () {
+      if (this.parent.value.indexOf(this.label) === -1) {
+        return this.parent.value.push(this.label)
+      }
+
+      if (this.parent.value.indexOf(this.label) !== -1) {
+        this.parent.value.forEach((item, index) => {
+          if (item === this.label) {
+            this.parent.value.splice(index, 1)
+          }
+        })
+      }
     }
   }
 }

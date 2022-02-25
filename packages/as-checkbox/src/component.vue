@@ -4,7 +4,8 @@
     :class="[{
       'is-checked': checked,
       'is-disabled': disabled,
-      'is-bordered': border
+      'is-bordered': border,
+      'is-group-bordered': hasGroup
     }]"
     @click.prevent="handleClick">
     <span class="as-checkbox__input">
@@ -20,11 +21,12 @@
         ref="input"
         :disabled="disabled" />
     </span>
-    <label class="as-checkbox__label" :class="{
+    <span class="as-checkbox__label" :class="{
       'is-disabled': disabled
     }">
       <slot></slot>
-    </label>
+      <template v-if="!$slots.default">{{label}}</template>
+    </span>
   </section>
 </template>
 
@@ -36,11 +38,23 @@ export default {
       type: Boolean,
       default: false
     },
+    label: String,
     disabled: Boolean,
     border: Boolean
   },
   computed: {
+    parent () {
+      return this.$parent || this.$root;
+    },
+    // 是否是复选框组
+    hasGroup () {
+      return this.parent.$options.componentName === 'AsCheckboxGroup' && this.border
+    },
     checked () {
+      if (this.parent.$options.componentName === 'AsCheckboxGroup') { // 当是复选框组时
+        return this.parent.value.indexOf(this.label) !== -1
+      }
+
       return this.value
     }
   },
@@ -51,8 +65,25 @@ export default {
     handleChange ($event) {
       this.$refs.input.checked = !this.checked
 
+      if (this.parent.$options.componentName === 'AsCheckboxGroup') {
+        this.handleGroupValue()
+      }
+
       this.$emit("input", this.$refs.input.checked)
       this.$emit("change", this.$refs.input.checked)
+    },
+    handleGroupValue () {
+      if (this.parent.value.indexOf(this.label) === -1) {
+        return this.parent.value.push(this.label)
+      }
+
+      if (this.parent.value.indexOf(this.label) !== -1) {
+        this.parent.value.forEach((item, index) => {
+          if (item === this.label) {
+            this.parent.value.splice(index, 1)
+          }
+        })
+      }
     }
   }
 }

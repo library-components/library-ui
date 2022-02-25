@@ -14,7 +14,7 @@
   &:not(.is-disabled, .is-success-disabled) {
     &:not(.is-checked) {
       &:hover {
-        border-color: #00a4ff;
+        border-color: #00a4ff !important;
         color: #00a4ff;
       }
     }
@@ -37,8 +37,23 @@
     cursor: not-allowed;
   }
   &.is-success-checked {
-    border-color: #00a4ff;
+    border-color: #00a4ff !important;
     color: #00a4ff;
+  }
+  &.is-group-bordered {
+    border-left: none;
+    border-right-color: #fff;
+    &:not(.is-success-checked, .is-checked) {
+      border-right-color: #dcdfe6;
+    }
+    &:first-child {
+      border-left: 1px solid #dcdfe6;
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+      border-left: 1px solid #dcdfe6;
+      border-radius: 0 2px 2px 0;
+    }
   }
 }
 
@@ -46,6 +61,7 @@
   display: none;
 }
 .as-checkbox-button__icon {
+  border-radius: 2px;
   position: absolute;
   z-index: 2;
   &.is-top-left {
@@ -54,10 +70,10 @@
   }
   &.is-top-right {
     top: 0;
-    right: 0;
+    right: -1px;
   }
   &.is-right-bottom {
-    right: 0;
-    bottom: 0;
+    right: -1px;
+    bottom: -1px;
   }
 }

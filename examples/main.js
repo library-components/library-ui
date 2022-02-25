@@ -8,7 +8,7 @@ import '@/assets/iconfont/iconfont.css'
 import '~/styles/index.scss'
 import '~/examples/demo-styles/index.scss'
 import '~/packages/theme-chalk/src/index.scss';
-import icon from '~/icon.json';
+import icon from '~/examples/icon.json';
 
 import './router-guard'
 
