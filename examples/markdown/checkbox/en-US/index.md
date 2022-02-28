@@ -36,10 +36,10 @@ button form of checkbox
 
 ```html
   <template>
-    <as-checkbox-button v-model="checked">check button</as-checkbox-button>
-    <as-checkbox-button v-model="checked3" success direction="top-left">icon button</as-checkbox-button>
-    <as-checkbox-button v-model="checked2" success direction="top-right">icon button</as-checkbox-button>
-    <as-checkbox-button v-model="checked1" success>icon button</as-checkbox-button>
+    <as-checkbox-button v-model="checked" checked>check button</as-checkbox-button>
+    <as-checkbox-button v-model="checked3" success direction="top-left" checked>icon button</as-checkbox-button>
+    <as-checkbox-button v-model="checked2" success direction="top-right" checked>icon button</as-checkbox-button>
+    <as-checkbox-button v-model="checked1" success checked>icon button</as-checkbox-button>
   </template>
   <script>
     export default {
@@ -154,12 +154,12 @@ A group of checkboxes or check buttons can be placed in `as-checkbox-group`
 
 ```html
   <as-checkbox disabled>checkbox</as-checkbox>
-  <as-checkbox v-model="checked3" disabled>checked and disabled</as-checkbox>
+  <as-checkbox v-model="checked3" checked disabled>checked and disabled</as-checkbox>
   <as-checkbox border v-model="checked1" disabled>checkbox</as-checkbox>
-  <as-checkbox border v-model="checked2" disabled>checkbox</as-checkbox>
-  <as-checkbox-button disabled v-model="checked4">check button</as-checkbox-button>
+  <as-checkbox border v-model="checked2" checked disabled>checkbox</as-checkbox>
+  <as-checkbox-button disabled v-model="checked4" checked>check button</as-checkbox-button>
   <as-checkbox-button disabled success>icon button</as-checkbox-button>
-  <as-checkbox-button disabled success v-model="checked">icon button</as-checkbox-button>
+  <as-checkbox-button disabled success v-model="checked" checked>icon button</as-checkbox-button>
 
   <script>
     export default {
@@ -183,9 +183,10 @@ A group of checkboxes or check buttons can be placed in `as-checkbox-group`
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | value / v-model | 绑定值 | boolean | — | false |
-| label     | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）| string / number / boolean  |       —        |     —    |
-| disabled  | 是否禁用    | boolean   |  — | false   |
-| border  | 是否显示边框  | boolean   | — | false   |
+| label | 按钮标签 | string | — | — |
+| checked | 是否默认选中 | boolean | true / false | false |
+| disabled | 是否禁用 | boolean | — | false |
+| border | 是否显示边框 | boolean | — | false |
 
 ### Checkbox 事件
 
@@ -209,7 +210,8 @@ A group of checkboxes or check buttons can be placed in `as-checkbox-group`
 
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| value/v-model | 绑定值 | boolean | - | - |
-| label     | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）| string / number / boolean  |       —        |     —    |
-| disabled  | 是否禁用    | boolean   |  — | false   |
+| value/v-model | 绑定值 | boolean | - | false |
+| label     | 按钮标签 | string  | — | — |
+| checked | 是否默认选中 | boolean | true / false | false |
+| disabled  | 是否禁用 | boolean |  — | false   |
 | direction | 图标位置 | string | top-left / top-right / right-bottom | right-bottom |

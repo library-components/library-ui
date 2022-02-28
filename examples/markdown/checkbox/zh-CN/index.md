@@ -9,12 +9,14 @@
 ```html
   <template>
     <as-checkbox v-model="checked">复选框</as-checkbox>
+
+    <as-checkbox v-model="checked" checked>复选框</as-checkbox>
   </template>
   <script>
     export default {
       data () {
         return {
-          checked: false
+          checked: true
         }
       },
       watch: {
@@ -36,19 +38,19 @@
 
 ```html
   <template>
-    <as-checkbox-button v-model="checked">复选按钮</as-checkbox-button>
-    <as-checkbox-button v-model="checked3" success direction="top-left">带图标的复选按钮</as-checkbox-button>
-    <as-checkbox-button v-model="checked2" success direction="top-right">带图标的复选按钮</as-checkbox-button>
-    <as-checkbox-button v-model="checked1" success>带图标的复选按钮</as-checkbox-button>
+    <as-checkbox-button v-model="checked" checked>复选按钮</as-checkbox-button>
+    <as-checkbox-button v-model="checked3" checked success direction="top-left">带图标的复选按钮</as-checkbox-button>
+    <as-checkbox-button v-model="checked2" checked success direction="top-right">带图标的复选按钮</as-checkbox-button>
+    <as-checkbox-button v-model="checked1" checked success>带图标的复选按钮</as-checkbox-button>
   </template>
   <script>
     export default {
       data () {
         return {
-          checked: false,
-          checked1: false,
-          checked2: false,
-          checked3: false
+          checked: true,
+          checked1: true,
+          checked2: true,
+          checked3: true
         }
       },
       watch: {
@@ -99,9 +101,9 @@
 
 <as-row style="margin-top: 20px;">
   <as-checkbox-group v-model="checkList">
-    <as-checkbox label="无border1"></as-checkbox>
-    <as-checkbox label="无border2"></as-checkbox>
-    <as-checkbox disabled label="无border3"></as-checkbox>
+    <as-checkbox value="1" label="无border1"></as-checkbox>
+    <as-checkbox value="2" label="无border2"></as-checkbox>
+    <as-checkbox value="3" disabled label="无border3"></as-checkbox>
   </as-checkbox-group>
 </as-row>
 
@@ -183,9 +185,10 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | value / v-model | 绑定值 | boolean | — | false |
-| label     | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）| string / number / boolean  |       —        |     —    |
-| disabled  | 是否禁用    | boolean   |  — | false   |
-| border  | 是否显示边框  | boolean   | — | false   |
+| label | 按钮标签 | string | — | — |
+| checked | 是否默认选中 | boolean | true / false | false |
+| disabled | 是否禁用 | boolean | — | false |
+| border | 是否显示边框 | boolean | — | false |
 
 ### Checkbox 事件
 
@@ -209,7 +212,8 @@
 
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| value/v-model | 绑定值 | boolean | - | - |
-| label     | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）| string / number / boolean  |       —        |     —    |
-| disabled  | 是否禁用    | boolean   |  — | false   |
+| value/v-model | 绑定值 | boolean | - | false |
+| label     | 按钮标签 | string  | — | — |
+| checked | 是否默认选中 | boolean | true / false | false |
+| disabled  | 是否禁用 | boolean |  — | false   |
 | direction | 图标位置 | string | top-left / top-right / right-bottom | right-bottom |

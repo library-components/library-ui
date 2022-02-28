@@ -108,6 +108,17 @@ export default {
               }
             },
             {
+              path: 'asRadio',
+              title: localLang === 'en-US' ? 'Radio' : 'Radio 单选框',
+              component: () => {
+                if (localLang === 'en-US') {
+                  return import('./markdown/radio/en-US/index.md');
+                } else {
+                  return import('./markdown/radio/zh-CN/index.md');
+                }
+              }
+            },
+            {
               path: 'asSwitch',
               title: localLang === 'en-US' ? 'Switch' : 'Switch 开关',
               component: () => {

@@ -1,46 +1,80 @@
 <template>
-    <div class="radio-beauty-container">
-        <label class="switch">
-            <span class="radio-name">radio2</span>
-            <input type="radio" name="radioName" id="radioName2" hidden/>
-            <label for="radioName2" class="radio-beauty"></label>
-        </label>
-        <label class="switch">
-            <span class="radio-name">radio3</span>
-            <input type="radio" name="radioName" id="radioName3" hidden/>
-            <label for="radioName3" class="radio-beauty"></label>
-        </label>
-    </div>
+  <label
+    class="as-radio"
+    :class="{
+      'is-checked': model === label,
+      'is-disabled': disabled,
+    }">
+    <span
+      class="as-radio__inner"
+      :class="{
+        'is-checked': model === label,
+        'is-disabled': disabled,
+        'is-bordered': border
+      }">
+      <input
+        type="radio"
+        ref="radio"
+        class="as-radio__original"
+        :disabled="disabled"
+        :name="name"
+        :value="label"
+        v-model="model"
+        @change="handleChange" />
+    </span>
+    <span
+      class="as-radio-label">
+      <slot></slot>
+      <template v-if="!$slots.default">{{label}}</template>
+    </span>
+  </label>
 </template>
 
 <script>
 export default {
-    name: 'ASRadio'
+  name: "AsRadio",
+  props: {
+    value: {},
+    label: {},
+    name: String,
+    disabled: Boolean,
+    border: Boolean
+  },
+  computed: {
+    hasGroup () {
+      let parent = this.$parent
+
+      while (parent) {
+        if (parent.$options.componentName !== 'AsRadioGroup') {
+          parent = parent.$parent;
+        } else {
+          this.radioGroup = parent;
+          return true;
+        }
+      }
+
+      return false
+    },
+    model: {
+      get () {
+        return this.hasGroup ? this.radioGroup.value : this.value;
+      },
+      set (val) {
+        if (this.hasGroup) {
+          this.radioGroup.value = val
+        } else {
+          this.$emit('input', val);
+        }
+        this.$refs.radio && (this.$refs.radio.checked = this.model === this.label);
+      }
+    },
+  },
+  methods: {
+    handleChange (e) {
+      console.log('点击：', e)
+
+      this.$emit("change", this.value, e)
+    }
+  }
 }
 </script>
-
-<style scoped>
-.switch {
-    display: flex;
-    align-items: center;
-    width: auto;
-    float: left;
-}
-.radio-beauty-container .radio-beauty {
-    width: 16px;
-    height: 16px;
-    box-sizing: border-box;
-    display: inline-block;
-    border: 1px solid #d7d7d7;
-    margin: 0 5px;
-    border-radius: 50%;
-    transition: 0.2s;
-}
-.radio-beauty-container input[type="radio"]:checked+.radio-beauty {
-    border: solid 1px green;
-    padding: 3px;
-    background-color: green;
-    background-clip: content-box;
-    box-shadow: inset 0 0 1px rgba(0,128,0, 0.2), 0 0 3px green;
-}
-</style>

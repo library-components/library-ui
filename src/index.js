@@ -10,12 +10,13 @@ import Modal from '~/packages/as-modal/index';
 import Toast from '~/packages/as-toast/index';
 import Carousel from '~/packages/as-carousel/index';
 import Switch from '~/packages/as-switch/index';
-import Radio from '~/packages/as-radio/index';
 import Drop from '~/packages/as-drop/index';
 import Button from '~/packages/as-button/index';
 import Checkbox from '~/packages/as-checkbox/index';
 import CheckboxButton from '~/packages/as-checkbox-button/index';
 import CheckboxGroup from '~/packages/as-checkbox-group/index';
+import Radio from '~/packages/as-radio/index';
+import RadioGroup from '~/packages/as-radio-group/index';
 
 const components = [
   Modal,
@@ -23,7 +24,6 @@ const components = [
   Carousel,
   Checkbox,
   Switch,
-  Radio,
   Drop,
   Button,
   Row,
@@ -34,7 +34,9 @@ const components = [
   Main,
   Footer,
   CheckboxButton,
-  CheckboxGroup
+  CheckboxGroup,
+  Radio,
+  RadioGroup
 ]
 
 const install = function(Vue) {

@@ -2,9 +2,9 @@
   <section
     class="as-checkbox-button"
     :class="{
-      'is-checked': checked && !success,
+      'is-checked': isChecked && !success,
       'is-disabled': disabled && !success,
-      'is-success-checked': checked && success,
+      'is-success-checked': isChecked && success,
       'is-success-disabled': disabled && success,
       'is-group-bordered': hasGroup
     }"
@@ -18,7 +18,7 @@
       <slot></slot>
       <template v-if="!$slots.default">{{label}}</template>
       <i
-        v-if="success && checked"
+        v-if="success && isChecked"
         class="as-checkbox-button__icon"
         :class="[`is-${direction}`, `as-icon-success-${direction}`]"></i>
     </span>
@@ -37,6 +37,7 @@ export default {
     },
     label: String,
     success: Boolean,
+    checked: Boolean,
     disabled: Boolean,
     icon: String,
     direction: {
@@ -47,45 +48,58 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      isChecked: false
+    }
+  },
   computed: {
-    parent () {
-      return this.$parent || this.$root;
-    },
     // 是否是复选框组
     hasGroup () {
-      return this.parent.$options.componentName === 'AsCheckboxGroup'
-    },
-    checked () {
-      if (this.parent.$options.componentName === 'AsCheckboxGroup') { // 当是复选框组时
-        return this.parent.value.indexOf(this.label) !== -1
+      let parent = this.$parent
+
+      while (parent) {
+        if (parent.$options.componentName !== 'AsCheckboxGroup') {
+          parent = parent.$parent;
+        } else {
+          this.checkboxGroup = parent;
+          return true;
+        }
       }
 
-      return this.value
+      return false
     }
+  },
+  created () {
+    if (this.hasGroup) {
+      return this.isChecked = this.checkboxGroup.value.indexOf(this.value || this.label) !== -1
+    }
+
+    this.isChecked = this.checked
   },
   methods: {
     handleClick () {
       !this.disabled && this.handleChange()
     },
     handleChange () {
-      this.$refs.input.checked = !this.checked
+      this.isChecked = !this.isChecked
 
-      if (this.parent.$options.componentName === 'AsCheckboxGroup') {
+      if (this.hasGroup) {
         this.handleGroupValue()
       }
 
-      this.$emit("input", this.$refs.input.checked)
-      this.$emit("change", this.$refs.input.checked)
+      this.$emit("input", this.isChecked)
+      this.$emit("change", this.isChecked, this.$refs.input)
     },
     handleGroupValue () {
-      if (this.parent.value.indexOf(this.label) === -1) {
-        return this.parent.value.push(this.label)
+      if (this.checkboxGroup.value.indexOf(this.value || this.label) === -1) {
+        return this.checkboxGroup.value.push(this.value || this.label)
       }
 
-      if (this.parent.value.indexOf(this.label) !== -1) {
-        this.parent.value.forEach((item, index) => {
-          if (item === this.label) {
-            this.parent.value.splice(index, 1)
+      if (this.checkboxGroup.value.indexOf(this.value || this.label) !== -1) {
+        this.checkboxGroup.value.forEach((item, index) => {
+          if (item === (this.value || this.label)) {
+            this.checkboxGroup.value.splice(index, 1)
           }
         })
       }
