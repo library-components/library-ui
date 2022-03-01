@@ -60,6 +60,48 @@
 
 :::
 
+## 带边框
+
+:::demo
+
+```html
+  <as-row>
+    <as-radio border>带边框</as-radio>
+    <as-radio border disabled>禁用</as-radio>
+  </as-row>
+
+  <as-row style="margin-top:10px">
+    <as-radio-group v-model="radio">
+      <as-radio border v-for="(item, index) in radios" :key="index" :label="item.value">{{ item.label }}</as-radio>
+    </as-radio-group>
+  </as-row>
+
+  <script>
+    export default {
+      data () {
+        return {
+          radios: [{
+            label: '第一',
+            value: 1
+          }, {
+            label: '第二',
+            value: 2
+          }, {
+            label: '第三',
+            value: 3
+          }, {
+            label: '第四',
+            value: 8
+          }],
+          radio: 0
+        }
+      }
+    }
+  </script>
+```
+
+:::
+
 ## 禁用状态
 
 :::demo

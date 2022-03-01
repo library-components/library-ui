@@ -3,12 +3,13 @@
     class="as-radio"
     :class="[model === label ? `is-checked-${type}` : '', {
       'is-disabled': disabled,
+      'is-bordered': border,
+      'is-group-bordered': hasGroup && border
     }]">
     <span
       class="as-radio__inner"
       :class="[ model === label ? `is-checked-${type}` : '', {
-        'is-disabled': disabled,
-        'is-bordered': border
+        'is-disabled': disabled
       }]">
       <i
         class="as-radio-icon"

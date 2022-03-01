@@ -11,6 +11,7 @@
   user-select: none;
   transition: all .3s cubic-bezier(.645,.045,.355,1);
   position: relative;
+
   &:not(.is-disabled, .is-success-disabled) {
     &:not(.is-checked) {
       &:hover {
@@ -43,6 +44,14 @@
   &.is-group-bordered {
     border-left: none;
     border-right-color: #fff;
+    border-radius: 0;
+    .as-checkbox-button__icon {
+      border-radius: 0;
+      &.is-right-bottom {
+        right: 0;
+      }
+    }
+
     &:not(.is-success-checked, .is-checked) {
       border-right-color: #dcdfe6;
     }
@@ -51,8 +60,10 @@
       border-radius: 2px 0 0 2px;
     }
     &:last-child {
-      border-left: 1px solid #dcdfe6;
       border-radius: 0 2px 2px 0;
+      .is-right-bottom {
+        right: -0.5px;
+      }
     }
   }
 }

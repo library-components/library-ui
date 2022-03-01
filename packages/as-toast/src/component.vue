@@ -1,11 +1,9 @@
 <template>
-    <div>
-        as-toast
-    </div>
+  <section></section>
 </template>
 
 <script>
 export default {
-    name: "ASToast"
+  name: "AsToast"
 }
 </script>
