@@ -1,17 +1,21 @@
 <template>
   <label
     class="as-radio"
-    :class="{
-      'is-checked': model === label,
+    :class="[model === label ? `is-checked-${type}` : '', {
       'is-disabled': disabled,
-    }">
+    }]">
     <span
       class="as-radio__inner"
-      :class="{
-        'is-checked': model === label,
+      :class="[ model === label ? `is-checked-${type}` : '', {
         'is-disabled': disabled,
         'is-bordered': border
-      }">
+      }]">
+      <i
+        class="as-radio-icon"
+        :class="[`as-icon-${type.replace(/primary/g, 'success')}`, {
+          'is-disabled': disabled
+        }]">
+      </i>
       <input
         type="radio"
         ref="radio"
@@ -31,6 +35,8 @@
 </template>
 
 <script>
+const radioTypes = ['success', 'danger', 'error', 'info', 'primary']
+
 export default {
   name: "AsRadio",
   props: {
@@ -38,7 +44,14 @@ export default {
     label: {},
     name: String,
     disabled: Boolean,
-    border: Boolean
+    border: Boolean,
+    type: {
+      type: String,
+      default: "primary",
+      validator: function (value) {
+        return radioTypes.indexOf(value) !== -1
+      }
+    }
   },
   computed: {
     hasGroup () {
@@ -61,7 +74,7 @@ export default {
       },
       set (val) {
         if (this.hasGroup) {
-          this.radioGroup.value = val
+          this.radioGroup.handleChange(val)
         } else {
           this.$emit('input', val);
         }
@@ -71,9 +84,10 @@ export default {
   },
   methods: {
     handleChange (e) {
-      console.log('点击：', e)
-
-      this.$emit("change", this.value, e)
+      this.$nextTick(() => {
+        this.$emit('change', this.model);
+        this.isGroup && this.radioGroup.handleChange(this.model);
+      });
     }
   }
 }

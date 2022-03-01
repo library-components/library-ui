@@ -11,10 +11,15 @@ export default {
   props: {
     value: {}
   },
+  created () {
+    this.$on("handleChange", (value) => {
+      this.$emit("change", value)
+    })
+  },
   methods: {
-    handleChange () {
-      this.$emit("input", this.value)
-      this.$emit("change", this.value)
+    handleChange (val) {
+      this.$emit("input", val)
+      this.$emit("change", val)
     }
   }
 }

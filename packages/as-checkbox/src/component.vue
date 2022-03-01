@@ -63,7 +63,7 @@ export default {
       return this.isChecked = this.checkboxGroup.value.indexOf(this.value || this.label) !== -1
     }
 
-    this.isChecked = this.checked
+    this.isChecked = this.checked || this.value
   },
   methods: {
     handleClick () {
@@ -74,6 +74,8 @@ export default {
 
       if (this.hasGroup) {
         this.handleGroupValue()
+
+        this.checkboxGroup.handleChange()
       }
 
       this.$emit("input", this.isChecked)

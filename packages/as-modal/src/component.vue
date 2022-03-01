@@ -7,7 +7,7 @@
           <span class="as-modal__title">{{ title }}</span>
         </slot>
         <button class="as-modal__headerbtn" v-if="showClose" @click="handleClose">
-          <i class="as-modal__close as-icon-close"></i>
+          <i class="as-modal__close as-icon-error"></i>
         </button>
       </div>
       <div class="as-modal__body">

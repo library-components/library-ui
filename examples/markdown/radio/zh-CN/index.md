@@ -12,7 +12,7 @@
     export default {
       data () {
         return {
-          radio: '1'
+          radio: '0'
         }
       },
       watch: {
@@ -31,7 +31,7 @@
 :::demo
 
 ```html
-  <as-radio-group v-model="radio">
+  <as-radio-group v-model="radio" @change="changeRadio">
     <as-radio :label="3">备选项</as-radio>
     <as-radio :label="6">备选项</as-radio>
     <as-radio :label="9">备选项</as-radio>
@@ -47,6 +47,11 @@
       watch: {
         radio (newValue) {
           console.log("newValue: ", newValue)
+        }
+      },
+      methods: {
+        changeRadio (value) {
+          console.log("change：", value)
         }
       }
     }
@@ -73,3 +78,34 @@
     }
   </script>
 ```
+
+:::
+
+## Radio API
+
+| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| :--- | :--- | :---| :--- | :--- |
+| value / v-model | 绑定值 | - | - | - |
+| label | 按钮选中值 | - | - |
+| type | 按钮类型 | string | primary / success / error / info / danger | primary |
+| disabled | 是否禁用 | boolean | true / false | false |
+| border | 边框 | boolean | true / false | false |
+| name | 按钮name | string | - | - |
+
+## Radio Event
+
+| 属性 | 描述 | 返回值 |
+| :--- | :--- | :--- | :--- |
+| change | 按钮值发生变化触发的事件 | value |
+
+## Radio Group API
+
+| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| :--- | :--- | :---| :--- | :--- |
+| value / v-model | 绑定值 | - | - | - |
+
+## RadioGroup Event
+
+| 属性 | 描述 | 返回值 |
+| :--- | :--- | :--- | :--- |
+| change | 按钮值发生变化触发的事件 | value |

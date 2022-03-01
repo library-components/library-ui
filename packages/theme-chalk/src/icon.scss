@@ -56,7 +56,7 @@
   content: "\e70a";
 }
 
-.as-icon-left:before {
+.as-icon-left-arrow:before {
   content: "\e628";
 }
 
@@ -72,12 +72,16 @@
   content: "\e631";
 }
 
-.as-icon-right:before {
+.as-icon-right-arrow:before {
   content: "\e642";
 }
 
 .as-icon-unlock:before {
   content: "\e655";
+}
+
+.as-icon-success::before {
+  content: "\e61b";
 }
 
 .as-icon-upload:before {
@@ -89,7 +93,15 @@
 }
 
 .as-icon-info:before {
-  content: "\e67d";
+  content: "\e80f";
+}
+
+.as-icon-danger::before {
+  content: "\e71d";
+}
+
+.as-icon-link::before {
+  content: "\e9fe";
 }
 
 .as-icon-speaker:before {
@@ -160,7 +172,7 @@
   content: "\e699";
 }
 
-.as-icon-close:before {
+.as-icon-error:before {
   content: "\e69e";
 }
 
@@ -232,10 +244,10 @@
   animation: rotating 2s linear infinite;
 }
 
-.as-icon--right {
+.as-icon-right-arrow {
   margin-left: 5px;
 }
-.as-icon--left {
+.as-icon-left-arrow {
   margin-right: 5px;
 }
 

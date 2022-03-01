@@ -124,7 +124,7 @@
 </as-row>
 
 <as-row style="margin-top: 20px;">
-  <as-checkbox-group v-model="checkList">
+  <as-checkbox-group v-model="checkList" @change="handleChange">
     <as-checkbox-button success direction="top-left" label="图标按钮1"></as-checkbox-button>
     <as-checkbox-button success direction="top-right" label="图标按钮2"></as-checkbox-button>
     <as-checkbox-button success label="图标按钮3"></as-checkbox-button>
@@ -142,6 +142,11 @@
     watch: {
       checkList (newValue) {
         console.log("checklist: ", newValue)
+      }
+    },
+    methods: {
+      handleChange (val) {
+        console.log("复选框change: ", val)
       }
     }
   }
