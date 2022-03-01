@@ -4,7 +4,7 @@
   "description": "library-ui",
   "main": "lib/library-ui.common.js",
   "scripts": {
-    "clean": "rimraf dist && rimraf lib",
+    "clean": "rimraf dist",
     "dev": "webpack server --mode=development --progress --config ./build/webpack.dev.config.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "build:example": "npm run clean && webpack --mode=production --config ./build/webpack.example.config.js",

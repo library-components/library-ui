@@ -18,6 +18,7 @@ const devConfig = {
     compress: true, // 是否压缩
     open: true, //自动打开浏览器
     host: 'localhost',
+    port: 9099,
     hot: true, //启用webpack的热模块替换功能
     historyApiFallback: true, // 不跳转
     inline: true, // 实时刷新,
