@@ -22,7 +22,8 @@ function fileExists(filePath) {
 themes.forEach((theme) => {
   var isSCSS = theme !== 'theme-default';
 
-  var indexContent = ''
+  // 由于icon.scss没有对应的组件，所以要在这里单独加上，将其写入index.scss中
+  var indexContent = isSCSS ? '@import "./icon.scss";\n' : '@import "./icon.css";\n';
 
   // 必须在此遍历，以向index.scss中动态写入引用其它组件的样式的语句，创建component.json方便在此动态生成scss文件
   Components.forEach(function(key) {

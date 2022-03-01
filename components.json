@@ -1,12 +1,21 @@
 {
+  "icon": "./packages/theme-chalk/src/index.scss",
   "button": "./packages/as-button/index.js",
   "switch": "./packages/as-switch/index.js",
   "carousel": "./packages/as-carousel/index.js",
   "checkbox": "./packages/as-checkbox/index.js",
+  "checkbox-button": "./packages/as-checkbox-button/index.js",
+  "checkbox-group": "./packages/as-checkbox-group/index.js",
   "col": "./packages/as-col/index.js",
   "drop": "./packages/as-drop/index.js",
   "modal": "./packages/as-modal/index.js",
   "radio": "./packages/as-radio/index.js",
+  "radio-group": "./packages/as-radio-group/index.js",
+  "container": "./packages/as-container/index.js",
+  "header": "./packages/as-header/index.js",
+  "aside": "./packages/as-aside/index.js",
+  "main": "./packages/as-main/index.js",
+  "footer": "./packages/as-footer/index.js",
   "row": "./packages/as-row/index.js",
   "toast": "./packages/as-toast/index.js"
 }
