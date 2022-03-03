@@ -12,7 +12,7 @@ const getComponentEntries = function (relativePath) {
   const componentEntries = files.reduce((fileObj, item) => {
     //  文件路径
     const itemPath = path.join(relativePath, item);
-    //  在文件夹中，需排除theme-chalk目录
+    // theme-chalk目录下没有index.js文件，需排除该目录
     const isDir = fs.statSync(itemPath).isDirectory() && itemPath.indexOf('theme-chalk') === -1;
     const [name, suffix] = item.split('.');
 
