@@ -87,7 +87,7 @@ export default {
     handleChange (e) {
       this.$nextTick(() => {
         this.$emit('change', this.model);
-        this.isGroup && this.radioGroup.handleChange(this.model);
+        this.hasGroup && this.radioGroup.handleChange(this.model);
       });
     }
   }

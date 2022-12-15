@@ -1,6 +1,6 @@
 {
   "name": "@personal-lib/library-ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "library-ui",
   "main": "lib/library-ui.common.js",
   "scripts": {

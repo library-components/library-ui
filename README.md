@@ -2,6 +2,29 @@
 
 基于vue2的个人组件库，不使用typescript
 
+# 全量引入
+
+```
+npm i @personal-lib/library-ui
+```
+
+在main.js中引入组件库
+
+```
+import LibraryUI from '@personal-lib/library-ui'
+import '@personal-lib/library-ui/lib/theme-chalk/index.css'
+
+Vue.use(LibraryUI)
+```
+
+然后就可以直接在组件中使用，如下：
+
+```
+<template>
+  <as-button type="success">信息按钮</as-button>
+</template>
+```
+
 # 按需引入
 
 在项目中安装`@vue/cli-plugin-babel`和`babel-plugin-import`
